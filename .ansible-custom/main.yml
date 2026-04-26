@@ -1,0 +1,36 @@
+---
+- name: Local Arch Linux
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Base development tools
+      community.general.pacman:
+        name:
+          - man
+          - git
+          - neovim
+          - base-devel
+        state: present
+        update_cache: yes
+    
+    - name: Base desktop
+      community.general.pacman:
+        name:
+          - plasma-desktop
+          - plasma-pa
+          - kdialog
+          - kscreen
+          - dolphin
+          - kitty
+
+    - name: Enable & start docker
+      ansible.builtin.systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Check docker group
+      ansible.builtin.group:
+        name: docker
+        state: present

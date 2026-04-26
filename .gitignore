@@ -5,7 +5,7 @@
 !/.zshrc
 !/.gitconfig
 
-!/.ansible/
+!/.ansible-custom/
 
 !/.config/
 /.config/*
