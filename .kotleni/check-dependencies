@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+last_bin=''
+missing=0
+
+required=( \
+    git tmux nvim zsh fastfetch \
+    hyprland hyprpaper hypridle hyprlock \
+    rofi quickshell waybar wl-clipboard \
+)
+
+function after_check {
+    if [[ $? != 0 ]]; then
+        echo "$last_bin MISSING"
+        ((missing++))
+    else
+        echo "$last_bin OK"
+    fi;
+}
+
+function check_unix {
+    last_bin=$1
+    $1 --version > /dev/null >/dev/null 2>&1
+    after_check
+}
+
+for dep in "${required[@]}"; do
+    check_unix "$dep"
+done;
+
+if (( $missing > 0 )); then
+    echo "Missing $missing dependencies!"
+fi
