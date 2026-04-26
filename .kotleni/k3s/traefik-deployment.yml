@@ -1,0 +1,63 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik
+  namespace: traefik
+  labels:
+    app: traefik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: amber
+      serviceAccountName: traefik-ingress-controller
+      containers:
+        - name: traefik
+          image: traefik:v2.10
+          args:
+            - --providers.kubernetesingress
+            - --entrypoints.web.address=:80
+            - --entrypoints.websecure.address=:443
+            # Let's Encrypt Config
+            - --certificatesresolvers.le.acme.email=yavarenikya@gmail.com
+            - --certificatesresolvers.le.acme.storage=/data/acme.json
+            - --certificatesresolvers.le.acme.tlschallenge=true
+          ports:
+            - name: web
+              containerPort: 80
+            - name: websecure
+              containerPort: 443
+          volumeMounts:
+            - name: acme
+              mountPath: /data
+      volumes:
+        - name: acme
+          hostPath:
+            path: /var/lib/traefik-acme
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  type: ClusterIP
+  selector:
+    app: traefik
+  externalIPs:
+    - 193.23.219.183
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+    - protocol: TCP
+      port: 443
+      name: websecure
