@@ -1,0 +1,5 @@
+[user]
+	name = Viktor Varenik
+	email = yavarenikya@gmail.com
+[core]
+	autocrlf = false

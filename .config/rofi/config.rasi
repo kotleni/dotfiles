@@ -1,0 +1,176 @@
+* {
+	blue: #0084ff;
+	magenta: #ff00e0;
+	purple: #a200ff;
+	green: #00eb00;
+	lightfg: #dddddd;
+	lightbg: #000f43;
+	background-color: #0d0d0f;
+	background: #232025;
+	foreground: #d1d1d2;
+	
+	/*selected-normal-background:  var(blue);*/
+	selected-normal-background:  var(lightfg);
+	
+	spacing: 2;
+	selected-active-foreground:  var(background);
+	separatorcolor:              var(foreground);
+	urgent-foreground:           var(magenta);
+	alternate-urgent-background: var(lightbg);
+	border-color:                var(foreground);
+	normal-background:           var(background);
+	alternate-active-background: var(lightbg);
+	active-foreground:           var(blue);
+	urgent-background:           var(background);
+	alternate-normal-foreground: var(foreground);
+	selected-active-background:  var(blue);
+	selected-normal-foreground:  var(lightbg);
+	active-background:           var(background);
+	alternate-active-foreground: var(blue);
+	alternate-normal-background: var(lightbg);
+	selected-urgent-background:  var(magenta);
+	selected-urgent-foreground:  var(background);
+	normal-foreground:           var(foreground);
+	alternate-urgent-foreground: var(magenta);
+}
+
+window {
+	padding: 0;
+	background-color: var(background);
+	border: 0;
+	border-radius: 6px;
+}
+
+mainbox {
+	padding: 8px;
+	border: 0;
+}
+
+message {
+	padding:      1px ;
+	border-color: var(separatorcolor);
+	border:       2px dash 0px 0px ;
+}
+
+element {
+	padding: 4px;
+	spacing: 4px;
+	border: 0;
+	cursor: pointer;
+	border-radius: 0px;
+}
+element normal.normal,
+element alternate.normal {
+	background-color: var(normal-background);
+	text-color:	   var(normal-foreground);
+}
+element normal.urgent,
+element alternate.urgent {
+	background-color: var(urgent-background);
+	text-color:	   var(urgent-foreground);
+}
+element normal.active,
+element alternate.active {
+	background-color: var(active-background);
+	text-color:	   var(active-foreground);
+}
+element selected.normal {
+	background-color: var(selected-normal-background);
+	text-color:	   var(selected-normal-foreground);
+}
+element selected.urgent {
+	background-color: var(selected-urgent-background);
+	text-color:	   var(selected-urgent-foreground);
+}
+element selected.active {
+	background-color: var(selected-active-background);
+	text-color:       var(selected-active-foreground);
+}
+element-text {
+	background-color: rgba ( 0, 0, 0, 0 % );
+	text-color:       inherit;
+	highlight:        inherit;
+	cursor:           inherit;
+	text-align: center;
+}
+element-icon {
+	background-color: rgba ( 0, 0, 0, 0 % );
+	size:             1em;
+	text-color:       inherit;
+	cursor:           inherit;
+}
+textbox {
+	text-color: var(foreground);
+}
+listview {
+	padding:      2px 0px 0px ;
+	scrollbar:    true;
+	border-color: var(separatorcolor);
+	spacing:      2px ;
+	fixed-height: 0;
+	border:       2px dash 0px 0px ;
+}
+scrollbar {
+	width: 4px;
+	padding: 0;
+	handle-width: 4px ;
+	border:       0;
+	handle-color: var(normal-foreground);
+}
+sidebar {
+	border-color: var(separatorcolor);
+	border:       2px dash 0px 0px ;
+}
+button {
+	spacing:    0;
+	text-color: var(normal-foreground);
+	cursor:     pointer;
+}
+button selected {
+	background-color: var(selected-normal-background);
+	text-color:       var(selected-normal-foreground);
+}
+
+num-filtered-rows, num-rows {
+	text-color: grey;
+	expand:     false;
+}
+textbox-num-sep {
+	text-color: grey;
+	expand:     false;
+	str:        "/";
+}
+inputbar {
+	padding:    1px;
+	spacing:    0px;
+	text-color: var(normal-foreground);
+	children:   [ prompt,textbox-prompt-colon,entry, overlay,num-filtered-rows, textbox-num-sep, num-rows, case-indicator ];
+}
+overlay {
+	background-color: var(normal-foreground);
+	foreground-color: var(normal-background);
+	text-color: var(normal-background);
+	padding: 0 0.2em;
+	margin: 0 0.2em;
+}
+case-indicator {
+	spacing:    0;
+	text-color: var(normal-foreground);
+}
+entry {
+	spacing:           0;
+	text-color:        var(normal-foreground);
+	placeholder-color: grey;
+	placeholder:       "Type to filter";
+	cursor:            text;
+}
+prompt {
+	spacing:    0;
+	text-color: var(normal-foreground);
+}
+textbox-prompt-colon {
+	margin:     0px 0.3000em 0.0000em 0.0000em ;
+	expand:     false;
+	str:        ":";
+	text-color: inherit;
+}
