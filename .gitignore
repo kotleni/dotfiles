@@ -10,6 +10,7 @@
 !/.config/
 /.config/*
 
+!/.config/kitty/
 !/.config/hypr/
 !/.config/waybar/
 !/.config/quickshell/
