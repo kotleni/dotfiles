@@ -34,7 +34,6 @@ Row {
 
     property var isAudioSourceMuted: audioSource.muted
 
-    /*
     MouseArea {
         anchors.fill: parent
         scrollGestureEnabled: true
@@ -48,7 +47,6 @@ Row {
             audioSink.volume = newVol;
         }
     }
-    */
 
     // Audio sink
     Text {
