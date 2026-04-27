@@ -20,6 +20,7 @@ vim.o.breakindent = true
 vim.o.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 0
+vim.opt.relativenumber = true
 
 -- minimal number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 10
