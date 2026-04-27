@@ -52,7 +52,7 @@ Row {
 
     // Audio sink
     Text {
-        width: parent.height
+        width: parent.height + 10
         anchors.verticalCenter: parent.verticalCenter
 
         text: {
@@ -72,7 +72,7 @@ Row {
 
     // Audio source
     Text {
-        width: parent.height
+        width: parent.height + 10
         anchors.verticalCenter: parent.verticalCenter
 
         text: {
