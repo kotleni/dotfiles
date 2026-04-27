@@ -6,7 +6,7 @@ missing=0
 required=( \
     git tmux nvim zsh fastfetch \
     hyprland hyprpaper hypridle hyprlock \
-    rofi quickshell waybar wl-clipboard \
+    rofi quickshell wl-copy \
 )
 
 function after_check {
