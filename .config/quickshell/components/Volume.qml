@@ -8,8 +8,8 @@ Row {
     id: volume_root 
     height: parent.height
     spacing: 10
-    leftPadding: 6
-    rightPadding: 6
+    leftPadding: 0
+    rightPadding: 0
 
     property string globalFont: "SF Pro Display Bold"
 
@@ -52,7 +52,7 @@ Row {
 
     // Audio sink
     Text {
-        width: parent.height + 10
+        width: parent.height + 20
         anchors.verticalCenter: parent.verticalCenter
 
         text: {
@@ -66,19 +66,21 @@ Row {
 
             return icon + " " + vol + "%"
         }
+        font.pixelSize: 14
         font.family: globalFont
         color: isAudioSinkMuted ? "red" : "white"
     }
 
     // Audio source
     Text {
-        width: parent.height + 10
+        width: parent.height + 20
         anchors.verticalCenter: parent.verticalCenter
 
         text: {
             var icon = isAudioSourceMuted ? "󰍭" : "󰍬"
             return icon + " " + Math.round(audioSource.volume * 100) + "%"
         }
+        font.pixelSize: 14
         font.family: globalFont
         color: isAudioSourceMuted ? "red" : "white"
     }

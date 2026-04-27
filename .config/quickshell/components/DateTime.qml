@@ -3,7 +3,7 @@ import QtQuick
 Item {
     id: datetime_root
     implicitWidth: timeText.width + 20
-    implicitHeight: 30
+    implicitHeight: parent.height
 
     property bool showTime: true
 
