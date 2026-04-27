@@ -12,3 +12,4 @@ export ARCHFLAGS="-arch $(uname -m)"
 alias e="$EDITOR $@"
 alias open="xdg-open $@"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
