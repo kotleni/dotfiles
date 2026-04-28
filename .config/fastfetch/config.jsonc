@@ -2,14 +2,6 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
     "type": "auto",
-    "source": "~/.config/fastfetch/femboy.png",
-    "width": 32,
-    "height": 14,
-    "padding": {
-      "top": 1,
-      "left": 2,
-      "right": 4
-    },
     "printRemaining": true,
     "preserveAspectRatio": true,
     "recache": true,

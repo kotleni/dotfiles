@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-git init
-git remote add origin git@github.com:kotleni/.dotfiles.git
-git fetch
-git checkout -f master
