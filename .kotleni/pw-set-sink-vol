@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "" ]]; then
+    echo "Usage: pw-set-sink-vol <volume: float>"
+fi
+
+wpctl set-volume @DEFAULT_AUDIO_SINK@ $1
