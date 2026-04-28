@@ -19,16 +19,6 @@
 !/.config/nvim/
 !/.config/tmux/
 
-!/.config/plasma-org.kde.plasma.desktop-appletsrc
-!/.config/plasma-localerc
-!/.config/plasmashellrc
 !/.config/dolphinrc
 !/.config/arkrc
-!/.config/spectaclerc
-!/.config/kwalletrc
-!/.config/ktimezonedrc
-!/.config/ksplashrc
-!/.config/kglobalshortcutsrc
-!/.config/kcminputrc
 !/.config/gwenviewrc
-!/.config/kactivitymanagerd-statsrc
