@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+arch_packages=(\
+    hyprland hypridle hyprlock hyprpaper \
+    waybar ttf-iosevka-nerd \
+    xdg-desktop-portal-hyprland grim \
+    wl-clipboard zsh rofi kitty ttf-cascadia-mono-nerd \
+    pipewire pipewire-alsa pipewire-pulse \
+    pipewire-jack power-profiles-daemon \
+    adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
+    dolphin ark gwenview \
+)
+
+if pacman --version; then
+    echo "Arch Linux detected!"
+    sudo pacman -Sy "${arch_packages[@]}"
+fi
