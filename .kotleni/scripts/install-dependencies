@@ -2,7 +2,7 @@
 
 arch_packages=(\
     hyprland hypridle hyprlock hyprpaper \
-    waybar ttf-iosevka-nerd \
+    waybar \
     xdg-desktop-portal-hyprland grim \
     wl-clipboard zsh rofi kitty ttf-cascadia-mono-nerd \
     pipewire pipewire-alsa pipewire-pulse \
@@ -11,7 +11,23 @@ arch_packages=(\
     dolphin ark gwenview slurp \
 )
 
-if pacman --version; then
+fedora_packages=(\
+    hyprland hypridle hyprlock hyprpaper \
+    waybar cascadia-code-fonts \
+    xdg-desktop-portal-hyprland grim \
+    wl-clipboard zsh rofi-wayland kitty \
+    pipewire-utils power-profiles-daemon \
+    adw-gtk3-theme qt5ct qt6ct kvantum \
+    dolphin ark gwenview slurp bluez \
+)
+
+if command -v pacman >/dev/null; then
     echo "Arch Linux detected!"
-    sudo pacman -Sy "${arch_packages[@]}"
+    sudo pacman -Sy --needed "${arch_packages[@]}"
+elif command -v dnf >/dev/null; then
+    echo "Fedora detected!"
+    sudo dnf install --skip-broken -y "${fedora_packages[@]}"
+else
+    echo "Unsupported distribution."
+    exit 1
 fi
