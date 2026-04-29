@@ -14,16 +14,56 @@
       "tray"
   ],
   "modules-right": [
+      "hyprland/language",
       "privacy",
       "temperature",
+      "bluetooth",
       "network",
       "cpu",
       "memory",
       "battery",
       "wireplumber",
       "wireplumber#source",
-      "clock"
+      "clock",
+      "custom/notification"
   ],
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-uk": "UA",
+    "format-ru": "RU"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-off": " Off",
+    "format-no-controller": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='16pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{id}",

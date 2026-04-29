@@ -1,4 +1,5 @@
 @import "mocha.css"; 
+@define-color accent @peach;
 
 * {
     font-family: "CaskaydiaCove Nerd Font", monospace;
@@ -30,8 +31,8 @@ button {
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @accent;
+    border-top: 2px solid @accent;
 }
 
 #workspaces button {
@@ -40,14 +41,14 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color: @accent;
+    border-top: 2px solid @accent;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color: @accent;
+    border-top: 2px solid @accent;
 }
 
 #workspaces button.urgent {
@@ -67,7 +68,9 @@ button:hover {
 #tray,
 #network,
 #mode,
-#scratchpad {
+#scratchpad,
+#bluetooth,
+#custom-notification {
   margin-top: 2px;
   margin-bottom: 2px;
   margin-left: 4px;
@@ -76,19 +79,27 @@ button:hover {
   padding-right: 4px;
 }
 
+#custom-notification {
+    
+}
+
+#bluetooth {
+    margin-top: 3px;
+}
+
 #language {
-    color: @flamingo;
-    border-bottom: 2px solid @lavender;
+    color: @accent;
+    border-bottom: 2px solid @accent;
 }
 
 #clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
+    color: @accent;
+    border-bottom: 2px solid @accent;
 }
 
 #clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
+    color: @accent;
+    border-bottom: 2px solid @accent;
 }
 
 #pulseaudio {
@@ -125,9 +136,3 @@ button:hover {
     margin-right: 0;
 }
 
-#custom-vpn {
-    color: @lavender;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
-}

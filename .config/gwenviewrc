@@ -8,9 +8,13 @@ MenuBar=Disabled
 File1[$e]=$HOME/screen-friendlyweb-feedcards-showcase1.gif
 File2[$e]=$HOME/Downloads/localhost_3000_.png
 File3[$e]=$HOME/.config/fastfetch/anime.jpg
+File4[$e]=$HOME/20260428_19h57m12s_grim.png
+File5[$e]=$HOME/20260429_01h01m08s_grim.png
 Name1[$e]=screen-friendlyweb-feedcards-showcase1.gif
 Name2[$e]=localhost_3000_.png
 Name3[$e]=anime.jpg
+Name4[$e]=20260428_19h57m12s_grim.png
+Name5[$e]=20260429_01h01m08s_grim.png
 
 [SideBar]
 InformationSplitterSizes=211,244

@@ -8,9 +8,11 @@
 	background-color: #0d0d0f;
 	background: #232025;
 	foreground: #d1d1d2;
+
+    peach: #fab387;
 	
 	/*selected-normal-background:  var(blue);*/
-	selected-normal-background:  var(lightfg);
+	selected-normal-background:  var(peach);
 	
 	spacing: 2;
 	selected-active-foreground:  var(background);

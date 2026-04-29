@@ -1,4 +1,5 @@
 [Extraction]
+closeAfterExtraction=true
 openDestinationFolderAfterExtraction=true
 
 [General]

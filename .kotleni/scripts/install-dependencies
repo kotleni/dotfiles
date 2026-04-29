@@ -8,7 +8,7 @@ arch_packages=(\
     pipewire pipewire-alsa pipewire-pulse \
     pipewire-jack power-profiles-daemon \
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
-    dolphin ark gwenview \
+    dolphin ark gwenview slurp \
 )
 
 if pacman --version; then
