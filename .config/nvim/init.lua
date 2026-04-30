@@ -1,3 +1,5 @@
+require('binds')
+
 local cfgutils = require('cfgutils')
 
 cfgutils.setTabWidth(4)
@@ -72,7 +74,23 @@ require('lazy').setup({
     {
         "neovim/nvim-lspconfig",
         lazy = false,
-    }
+    },
+    {
+        "romgrk/barbar.nvim",
+        lazy = false,
+    },
+    {
+        "windwp/nvim-autopairs",
+        lazy = false,
+    },
+    {
+        "norcalli/nvim-colorizer.lua",
+        lazy = false,
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        lazy = false,
+    },
 })
 
 vim.lsp.enable('pyright')
@@ -105,7 +123,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.api.nvim_set_keymap("n", "<leader>t", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
--- auto-close neotree on select
+-- Auto-close neotree on select
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     if vim.bo.buftype == '' then
@@ -114,4 +132,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
-
+-- Plugins
+require('plugins.markdown-render')
+require('plugins.barbar')
+require('plugins.autopairs')
+require('plugins.neotree')
