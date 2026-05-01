@@ -10,6 +10,7 @@ arch_packages=(\
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
     dolphin ark gwenview slurp \
     npm nodejs unzip \
+    gpu-screen-recorder \
 )
 
 fedora_packages=(\
