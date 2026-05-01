@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "> wpctl status"
+wpctl status
+echo "Use wpctl set-default <value> to change audio sink"
