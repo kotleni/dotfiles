@@ -1,42 +1,5 @@
+require('base')
 require('binds')
-
-local cfgutils = require('cfgutils')
-
-cfgutils.setTabWidth(4)
-vim.o.expandtab = true
-
--- transparent background
-local highlight_groups = {
-    "Normal", "NormalNC", "SignColumn", "LineNr", "EndOfBuffer", "MsgArea"
-}
-for _, group in ipairs(highlight_groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
-end
-vim.opt.termguicolors = true
-
-vim.g.mapleader = ','
-vim.o.number = true
-vim.o.mouse = ''
-vim.o.showmode = false
-vim.o.breakindent = true
-vim.o.cursorline = true
-vim.opt.termguicolors = true
-vim.opt.cmdheight = 0
-vim.opt.relativenumber = true
-
--- minimal number of screen lines to keep above and below the cursor
-vim.o.scrolloff = 10
-
--- case insensitive searching unless \C or no one capital letter is present
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- set character to show some whitespace characters
-vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- sync clipboard between OS and nvim
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- load lazy vim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -72,6 +35,14 @@ require('lazy').setup({
         build = ":TSUpdate",
     },
     {
+        "mason-org/mason.nvim",
+        lazy = false,
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        lazy = false,
+    },
+    {
         "neovim/nvim-lspconfig",
         lazy = false,
     },
@@ -93,47 +64,25 @@ require('lazy').setup({
     },
 })
 
-vim.lsp.enable('pyright')
+-- vim.lsp.enable('pyright')
 
-vim.api.nvim_create_autocmd('FileType', {
-    callback = function() pcall(vim.treesitter.start) end,
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-        vim.o.signcolumn = 'yes:1'
-        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/completion') then
-            vim.o.complete = 'o,.,w,b,u'
-            vim.o.completeopt = 'menu,menuone,popup,noinsert'
-            vim.lsp.completion.enable(true, client.id, args.buf)
-        end
-    end
-})
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function() vim.highlight.on_yank() end,
-})
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-
-vim.api.nvim_set_keymap("n", "<leader>t", ":Neotree toggle<CR>", { noremap = true, silent = true })
-
--- Auto-close neotree on select
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    if vim.bo.buftype == '' then
-      vim.cmd('Neotree close')
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     callback = function(args)
+--         vim.o.signcolumn = 'yes:1'
+--         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+--         if client:supports_method('textDocument/completion') then
+--             vim.o.complete = 'o,.,w,b,u'
+--             vim.o.completeopt = 'menu,menuone,popup,noinsert'
+--             vim.lsp.completion.enable(true, client.id, args.buf)
+--         end
+--     end
+-- })
 
 -- Plugins
 require('plugins.markdown-render')
 require('plugins.barbar')
 require('plugins.autopairs')
 require('plugins.neotree')
+require('plugins.telescope')
+require('plugins.treesitter')
+require('plugins.mason')

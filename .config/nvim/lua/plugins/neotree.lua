@@ -8,3 +8,14 @@ require("neo-tree").setup({
   },
 })
 
+vim.api.nvim_set_keymap("n", "<leader>t", ":Neotree toggle<CR>", { noremap = true, silent = true })
+
+-- Auto-close neotree on select
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    if vim.bo.buftype == '' then
+      vim.cmd('Neotree close')
+    end
+  end,
+})
+

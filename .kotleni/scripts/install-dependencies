@@ -9,6 +9,7 @@ arch_packages=(\
     pipewire-jack power-profiles-daemon \
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
     dolphin ark gwenview slurp \
+    npm nodejs unzip \
 )
 
 fedora_packages=(\
@@ -19,6 +20,7 @@ fedora_packages=(\
     pipewire-utils power-profiles-daemon \
     adw-gtk3-theme qt5ct qt6ct kvantum \
     dolphin ark gwenview slurp bluez \
+    npm nodejs unzip \
 )
 
 if command -v pacman >/dev/null; then
