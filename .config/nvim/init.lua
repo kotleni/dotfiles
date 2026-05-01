@@ -62,6 +62,10 @@ require('lazy').setup({
         "MeanderingProgrammer/render-markdown.nvim",
         lazy = false,
     },
+    {
+        "saghen/blink.cmp",
+        lazy = false,
+    },
 })
 
 -- vim.lsp.enable('pyright')
@@ -86,3 +90,4 @@ require('plugins.neotree')
 require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.mason')
+require('plugins.blink')
