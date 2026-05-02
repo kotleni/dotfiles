@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+MSG=""
+
+if (( RANDOM % 2 == 0 )); then
+    MSG="We're on $(uname -sr)!"
+else
+    MSG="Greetings!"
+fi
+
+cowsay -e oo -T U $MSG
