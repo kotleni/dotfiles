@@ -14,6 +14,10 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
+        "nvim-tree/nvim-web-devicons",
+        lazy = false,
+    },
+    {
         'nvim-telescope/telescope.nvim',
         enabled = true,
         event = 'VimEnter',
