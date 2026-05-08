@@ -69,7 +69,11 @@ require('lazy').setup({
     {
         "xiyaowong/transparent.nvim",
         lazy = false,
-    }
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        lazy = false,
+    },
 })
 
 -- vim.lsp.enable('pyright')

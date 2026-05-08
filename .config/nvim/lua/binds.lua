@@ -40,3 +40,5 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- JS/TS related
 vim.keymap.set('n', '<leader>fj', ':!npm run format<CR>:edit<CR>', { silent = true })
+
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Actions" })
