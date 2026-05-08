@@ -66,6 +66,10 @@ require('lazy').setup({
         "saghen/blink.cmp",
         lazy = false,
     },
+    {
+        "xiyaowong/transparent.nvim",
+        lazy = false,
+    }
 })
 
 -- vim.lsp.enable('pyright')
@@ -91,3 +95,4 @@ require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.mason')
 require('plugins.blink')
+require('plugins.transparent')

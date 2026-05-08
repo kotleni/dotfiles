@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+QT5="$HOME/.config/qt5ct/qt5ct.conf"
+QT6="$HOME/.config/qt6ct/qt6ct.conf"
+KITTY="$HOME/.config/kitty/current-theme.conf"
+
+function kitty_update_theme() {
+    for socket in /tmp/kitty-*; do
+        [ -S "$socket" ] && kitty @ --to "unix:$socket" set-colors --configured "$HOME/.config/kitty/current-theme.conf"
+    done
+}
+
+CURRENT_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
+    echo 'light'
+    gsettings set org.gnome.desktop.interface color-scheme "default"
+    gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3"
+
+    sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt5ct/colors/airy.conf|' "$QT5"
+    sed -i 's|icon_theme=.*|icon_theme=breeze|' "$QT5"
+
+    sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/airy.conf|' "$QT6"
+    sed -i 's|icon_theme=.*|icon_theme=breeze|' "$QT6"
+
+    ln -sf "$HOME/.config/kitty/themes/light.conf" "$KITTY"
+    kitty_update_theme
+else
+    echo 'dark'
+    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+
+    sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt5ct/colors/darker.conf|' "$QT5"
+    sed -i 's|icon_theme=.*|icon_theme=breeze-dark|' "$QT5"
+
+    sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/darker.conf|' "$QT6"
+    sed -i 's|icon_theme=.*|icon_theme=breeze-dark|' "$QT6"
+
+    ln -sf "$HOME/.config/kitty/themes/dark.conf" "$KITTY"
+    kitty_update_theme
+
+fi

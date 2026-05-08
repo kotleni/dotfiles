@@ -3,14 +3,8 @@ local cfgutils = require('cfgutils')
 cfgutils.setTabWidth(4)
 vim.o.expandtab = true
 
--- transparent background
-local highlight_groups = {
-    "Normal", "NormalNC", "SignColumn", "LineNr", "EndOfBuffer", "MsgArea"
-}
-for _, group in ipairs(highlight_groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
-end
 vim.opt.termguicolors = true
+vim.g.transparent_enabled = true
 
 vim.g.mapleader = ','
 vim.o.number = true
