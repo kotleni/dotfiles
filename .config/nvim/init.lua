@@ -74,6 +74,10 @@ require('lazy').setup({
         "nvim-telescope/telescope-ui-select.nvim",
         lazy = false,
     },
+    {
+        "nvim-lualine/lualine.nvim",
+        lazy = false,
+    },
 })
 
 -- vim.lsp.enable('pyright')
@@ -100,3 +104,4 @@ require('plugins.treesitter')
 require('plugins.mason')
 require('plugins.blink')
 require('plugins.transparent')
+require('plugins.lualine')
