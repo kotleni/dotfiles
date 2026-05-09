@@ -1,5 +1,5 @@
 @import "mocha.css"; 
-@define-color accent @peach;
+@define-color accent @mauve;
 
 * {
     font-family: "CaskaydiaCove Nerd Font", monospace;
@@ -12,9 +12,6 @@ window#waybar {
     background: transparent;
     background-color: @crust;
     color: @overlay0;
-    transition-property: background-color;
-    transition-duration: 0.1s;
-    border-bottom: 1px solid @overlay1;
 }
 
 #window {
@@ -79,8 +76,12 @@ button:hover {
   padding-right: 4px;
 }
 
+#privacy {
+    padding: 0px;
+}
+
 #custom-notification {
-    
+
 }
 
 #bluetooth {
@@ -88,8 +89,7 @@ button:hover {
 }
 
 #language {
-    color: @accent;
-    border-bottom: 2px solid @accent;
+
 }
 
 #clock {
