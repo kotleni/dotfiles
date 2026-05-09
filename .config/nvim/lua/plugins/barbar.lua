@@ -1,4 +1,4 @@
-vim.g.barbar_auto_setup = false -- disable auto-setup
+vim.g.barbar_auto_setup = false
 require("barbar").setup({
   animation = false,
 
@@ -9,8 +9,11 @@ require("barbar").setup({
   -- Valid options are 'left' (the default), 'previous', and 'right'
   focus_on_close = 'left',
 
-  -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
   hide = {extensions = false, inactive = false},
+
+  minimum_padding = 0,
+  maximum_padding = 1,
+  maximum_length  = 30,
 
   icons = {
     buffer_index = false,
@@ -20,22 +23,17 @@ require("barbar").setup({
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = ' '},
     },
     gitsigns = {
-      added = {enabled = true, icon = ' '},
-      changed = {enabled = true, icon = ' '},
-      deleted = {enabled = true, icon = ' '},
+      added = {enabled = false, icon = '+ '},
+      changed = {enabled = false, icon = '* '},
+      deleted = {enabled = false, icon = '- '},
     },
-    separator = {left = '▎', right = ''},
+    separator = {left = '[', right = ']'},
 
-    -- If true, add an additional separator at the end of the buffer list
-    separator_at_end = true,
+    separator_at_end = false,
 
-    -- Configure the icons on the bufferline when modified or pinned.
-    -- Supports all the base icon options.
     modified = {button = '●'},
     pinned = {button = '', filename = true},
 
-    -- Configure the icons on the bufferline based on the visibility of a buffer.
-    -- Supports all the base icon options, plus `modified` and `pinned`.
     alternate = {filetype = {enabled = false}},
     current = {buffer_index = true},
     inactive = {button = '×'},
@@ -55,5 +53,4 @@ require("barbar").setup({
     -- Or, specify all three
     Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
   },
-  maximum_length = 25, -- Sets the maximum buffer name length.
 })

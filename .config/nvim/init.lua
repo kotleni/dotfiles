@@ -14,6 +14,11 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
+        "ellisonleao/gruvbox.nvim",
+        lazy = false,
+        priority = 99,
+    },
+    {
         "nvim-tree/nvim-web-devicons",
         lazy = false,
     },
@@ -71,15 +76,15 @@ require('lazy').setup({
         lazy = false,
     },
     {
-        "xiyaowong/transparent.nvim",
-        lazy = false,
-    },
-    {
         "nvim-telescope/telescope-ui-select.nvim",
         lazy = false,
     },
     {
         "nvim-lualine/lualine.nvim",
+        lazy = false,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
         lazy = false,
     },
 })
@@ -99,6 +104,7 @@ require('lazy').setup({
 -- })
 
 -- Plugins
+require('plugins.theme')
 require('plugins.markdown-render')
 require('plugins.barbar')
 require('plugins.autopairs')
@@ -107,5 +113,4 @@ require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.mason')
 require('plugins.blink')
-require('plugins.transparent')
 require('plugins.lualine')
