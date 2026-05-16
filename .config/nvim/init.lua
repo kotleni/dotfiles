@@ -91,6 +91,11 @@ require('lazy').setup({
         "lewis6991/gitsigns.nvim",
         lazy = false,
     },
+    {
+        "nvzone/floaterm",
+        dependencies = "nvzone/volt",
+        cmd = "FloatermToggle",
+    },
 })
 
 -- vim.lsp.enable('pyright')
