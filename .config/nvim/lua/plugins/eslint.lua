@@ -1,0 +1,4 @@
+require('nvim-eslint').setup({
+
+})
+

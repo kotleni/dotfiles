@@ -56,6 +56,10 @@ require('lazy').setup({
         lazy = false,
     },
     {
+        "esmuellert/nvim-eslint",
+        lazy = false,
+    },
+    {
         "romgrk/barbar.nvim",
         lazy = false,
     },
@@ -114,3 +118,4 @@ require('plugins.treesitter')
 require('plugins.mason')
 require('plugins.blink')
 require('plugins.lualine')
+require('plugins.eslint')
