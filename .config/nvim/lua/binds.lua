@@ -38,10 +38,19 @@ map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
--- JS/TS related
-vim.keymap.set('n', '<leader>fj', ':!npm run format<CR>:edit<CR>', { silent = true })
-
+-- Code action
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Actions" })
 
--- floaterm
-vim.keymap.set('n', '<leader>tt', '<Cmd>FloatermToggle<CR>', opts)
+-- Reformat for web dev
+vim.keymap.set('n', '<leader>fj', function()
+  vim.cmd('write')
+  vim.system({'npm', 'run', 'format'}, {}, function(obj)
+    vim.schedule(function()
+      if obj.code == 0 then
+        vim.cmd('edit!')
+      else
+        vim.notify("Format failed", vim.log.levels.ERROR)
+      end
+    end)
+  end)
+end, { desc = "Format via npm asynchronously" })

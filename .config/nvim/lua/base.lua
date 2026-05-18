@@ -42,6 +42,18 @@ vim.diagnostic.config({
     },
     signs = true,
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
     severity_sort = true,
 })
+
+-- Set working directory to the folder passed as an argument 
+vim.api.nvim_create_autocmd("VimEnter", {
+  desc = "Set folder passed in arguments as workdir",
+  callback = function()
+    local path = vim.fn.expand("%:p")
+    if vim.fn.isdirectory(path) == 1 then
+      vim.api.nvim_set_current_dir(path)
+    end
+  end,
+})
+

@@ -28,16 +28,15 @@ require('lazy').setup({
         event = 'VimEnter',
         requires = { 'nvim-lua/plenary.nvim' }
     },
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            "nvim-tree/nvim-web-devicons",
-        },
-        lazy = false,
-    },
+--    {
+--         "nvim-neo-tree/neo-tree.nvim",
+--         branch = "v3.x",
+--         dependencies = {
+--             "nvim-lua/plenary.nvim",
+--             "MunifTanjim/nui.nvim",
+--         },
+--         lazy = false,
+--     },
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
@@ -57,10 +56,6 @@ require('lazy').setup({
     },
     {
         "esmuellert/nvim-eslint",
-        lazy = false,
-    },
-    {
-        "romgrk/barbar.nvim",
         lazy = false,
     },
     {
@@ -92,35 +87,20 @@ require('lazy').setup({
         lazy = false,
     },
     {
-        "nvzone/floaterm",
-        dependencies = "nvzone/volt",
-        cmd = "FloatermToggle",
+        "vyfor/cord.nvim",
+        lazy = true,
     },
 })
-
--- vim.lsp.enable('pyright')
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---     callback = function(args)
---         vim.o.signcolumn = 'yes:1'
---         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
---         if client:supports_method('textDocument/completion') then
---             vim.o.complete = 'o,.,w,b,u'
---             vim.o.completeopt = 'menu,menuone,popup,noinsert'
---             vim.lsp.completion.enable(true, client.id, args.buf)
---         end
---     end
--- })
 
 -- Plugins
 require('plugins.theme')
 require('plugins.markdown-render')
-require('plugins.barbar')
 require('plugins.autopairs')
-require('plugins.neotree')
+-- require('plugins.neotree')
 require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.mason')
 require('plugins.blink')
 require('plugins.lualine')
 require('plugins.eslint')
+require('plugins.discord')
