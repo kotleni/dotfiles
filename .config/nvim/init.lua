@@ -28,15 +28,6 @@ require('lazy').setup({
         event = 'VimEnter',
         requires = { 'nvim-lua/plenary.nvim' }
     },
---    {
---         "nvim-neo-tree/neo-tree.nvim",
---         branch = "v3.x",
---         dependencies = {
---             "nvim-lua/plenary.nvim",
---             "MunifTanjim/nui.nvim",
---         },
---         lazy = false,
---     },
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
@@ -96,7 +87,6 @@ require('lazy').setup({
 require('plugins.theme')
 require('plugins.markdown-render')
 require('plugins.autopairs')
--- require('plugins.neotree')
 require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.mason')
