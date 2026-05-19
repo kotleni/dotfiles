@@ -83,7 +83,10 @@ require('lazy').setup({
     },
 })
 
--- Plugins
+-- Local plugins
+require('plugins.hope')
+
+-- Plugins configs
 require('plugins.theme')
 require('plugins.markdown-render')
 require('plugins.autopairs')

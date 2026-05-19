@@ -54,3 +54,14 @@ vim.keymap.set('n', '<leader>fj', function()
     end)
   end)
 end, { desc = "Format via npm asynchronously" })
+
+-- LSP errors navigate
+vim.keymap.set('n', ']e', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[e', vim.diagnostic.goto_prev)
+
+-- TSC compile
+vim.keymap.set('n', '<leader>tc', function()
+  vim.cmd('compiler tsc')
+  vim.cmd('make')
+  vim.cmd('copen')
+end, { desc = "[T]ype [C]heck whole project" })
