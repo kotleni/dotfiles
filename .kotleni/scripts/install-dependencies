@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# todo: install speakersafetyd on asahi linux only
 arch_packages=(\
     hyprland hypridle hyprlock hyprpaper \
     waybar \
