@@ -34,7 +34,8 @@ require('lazy').setup({
         build = ":TSUpdate",
     },
     {
-        "mason-org/mason.nvim",
+        dir = vim.fn.stdpath("config") .. "/localplugins/mason.nvim",
+        name = "mason.nvim",
         lazy = false,
     },
     {
@@ -63,6 +64,10 @@ require('lazy').setup({
     },
     {
         "saghen/blink.cmp",
+        dependencies = { 'saghen/blink.lib' },
+        build = function()
+            require('blink.cmp').build():wait(4000)
+        end,
         lazy = false,
     },
     {

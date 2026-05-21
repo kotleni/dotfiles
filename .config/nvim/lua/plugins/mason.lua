@@ -16,7 +16,8 @@ mason_lspconfig.setup({
         "lua_ls",
         "ts_ls",
         "pyright",
-        "clangd",
+--         "clangd",
+        "rust_analyzer",
     },
 })
 
@@ -59,10 +60,26 @@ vim.lsp.config("ts_ls", {})
 vim.lsp.config("pyright", {})
 vim.lsp.config("clangd", {})
 
+vim.lsp.config("rust_analyzer", {
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true,
+            },
+        },
+    },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "ts_ls",
     "pyright",
-    "clangd",
+--    "clangd",
+    "rust_analyzer",
 })
 
