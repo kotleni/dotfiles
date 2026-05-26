@@ -1,55 +1,57 @@
 @import "mocha.css"; 
-@define-color accent @mauve;
+@define-color accent @4c7899;
 
 * {
-    font-family: "CaskaydiaCove Nerd Font", monospace;
-    font-size: 16px;
-    min-height: 25px;
+    font-family: "Iosevka Nerd Font Mono", monospace;
+    font-size: 14px;
+    min-height: 0;
     font-weight: bold;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 window#waybar {
-    background: transparent;
-    background-color: @crust;
-    color: @overlay0;
-}
-
-#window {
-    margin: 8px;
-    padding-left: 8;
-    padding-right: 8;
-}
-
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    color: @accent;
-    border-top: 2px solid @accent;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-bottom: 1px solid #333333;
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 10px;
+    margin: 0;
+    color: #888888;
+    background-color: transparent;
+    border: 1px solid transparent;
 }
 
-#workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @accent;
-    border-top: 2px solid @accent;
-}
-
+#workspaces button.focused,
 #workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @accent;
-    border-top: 2px solid @accent;
+    background-color: #285577;
+    color: #ffffff;
+    border: 1px solid #4c7899;
+}
+
+#workspaces button.visible {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
 }
 
 #workspaces button.urgent {
     background-color: @red;
+    color: #ffffff;
+    border: 1px solid @red;
+}
+
+#workspaces button:hover {
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+#window {
+    padding: 0 10px;
+    color: #ffffff;
 }
 
 #pulseaudio,
@@ -67,72 +69,18 @@ button:hover {
 #mode,
 #scratchpad,
 #bluetooth,
-#custom-notification {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#privacy {
-    padding: 0px;
-}
-
-#custom-notification {
-
-}
-
-#bluetooth {
-    margin-top: 3px;
-}
-
-#language {
-
-}
-
-#clock {
-    color: @accent;
-    border-bottom: 2px solid @accent;
-}
-
-#clock.date {
-    color: @accent;
-    border-bottom: 2px solid @accent;
-}
-
-#pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
-}
-
-#network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
-}
-
+#custom-notification,
 #idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
+    margin: 0;
+    padding: 0 8px;
+    border: none;
+    background: transparent;
 }
 
-#idle_inhibitor.activated {
-    color: @red;
-}
-
-#battery {
-    color: @green;
-    border-bottom: 2px solid @green;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
-}
+#clock, #clock.date { color: @text; }
+#pulseaudio { color: @blue; }
+#network { color: @yellow; }
+#battery { color: @green; }
+#idle_inhibitor { color: @green; }
+#idle_inhibitor.activated { color: @red; }
 

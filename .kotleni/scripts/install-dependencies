@@ -12,6 +12,7 @@ arch_packages=(\
     hyprpolkitagent slurp \
     npm nodejs unzip \
     gpu-screen-recorder \
+    wiremix ripgrep \
 )
 
 fedora_packages=(\

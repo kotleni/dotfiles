@@ -1,0 +1,11 @@
+<leader>ff - find a file
+<leader>fg - find in file
+<leader>fh - find help
+
+<leader>ca - code actions menu
+
+]e - next error in file
+[e - prev error in file
+
+<leader>tc - compile via 'pnpm exec tsc'
+<leader>fj - reformat code with 'pnm run format'

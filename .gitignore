@@ -10,7 +10,7 @@
 !/.config/
 /.config/*
 
-!/.config/kitty/
+!/.config/ghostty/
 !/.config/hypr/
 !/.config/waybar/
 !/.config/rofi/
@@ -18,6 +18,3 @@
 !/.config/nvim/
 !/.config/tmux/
 
-!/.config/dolphinrc
-!/.config/arkrc
-!/.config/gwenviewrc

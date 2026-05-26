@@ -2,12 +2,9 @@
 
 QT5="$HOME/.config/qt5ct/qt5ct.conf"
 QT6="$HOME/.config/qt6ct/qt6ct.conf"
-KITTY="$HOME/.config/kitty/current-theme.conf"
 
-function kitty_update_theme() {
-    for socket in /tmp/kitty-*; do
-        [ -S "$socket" ] && kitty @ --to "unix:$socket" set-colors --configured "$HOME/.config/kitty/current-theme.conf"
-    done
+function ghostty_update_theme() {
+    killall -SIGUSR2 ghostty 2>/dev/null
 }
 
 CURRENT_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
@@ -23,8 +20,7 @@ if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
     sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/airy.conf|' "$QT6"
     sed -i 's|icon_theme=.*|icon_theme=breeze|' "$QT6"
 
-    ln -sf "$HOME/.config/kitty/themes/light.conf" "$KITTY"
-    kitty_update_theme
+    ghostty_update_theme
 else
     echo 'dark'
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
@@ -36,7 +32,5 @@ else
     sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/darker.conf|' "$QT6"
     sed -i 's|icon_theme=.*|icon_theme=breeze-dark|' "$QT6"
 
-    ln -sf "$HOME/.config/kitty/themes/dark.conf" "$KITTY"
-    kitty_update_theme
-
+    ghostty_update_theme
 fi

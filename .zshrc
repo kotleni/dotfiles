@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -8,10 +8,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export ARCHFLAGS="-arch $(uname -m)"
+export TERM="xterm-kitty"
 
 alias e="$EDITOR $@"
 alias open="xdg-open $@"
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+# alias ssh="kitty +kitten ssh"
 
 # Colorize man & less pages
 export LESS_TERMCAP_mb=$'\e[1;34m'     # begin bold
