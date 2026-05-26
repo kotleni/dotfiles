@@ -15,4 +15,4 @@ desktop-notifications = false
 app-notifications = false
 
 # custom-shader = "~/.config/ghostty/shaders/blaze.glsl"
-theme = dark:Calamity,light:Breadog
+theme = dark:Gruvbox Dark,light:GitHub
