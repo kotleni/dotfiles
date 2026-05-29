@@ -18,6 +18,7 @@ mason_lspconfig.setup({
         "pyright",
 --         "clangd",
         "rust_analyzer",
+        "asm_lsp",
     },
 })
 
@@ -59,6 +60,9 @@ vim.lsp.config("lua_ls", {
 vim.lsp.config("ts_ls", {})
 vim.lsp.config("pyright", {})
 vim.lsp.config("clangd", {})
+vim.lsp.config("asm_lsp", {
+    root_markers = { ".asm-lsp.toml", ".git" },
+})
 
 vim.lsp.config("rust_analyzer", {
     settings = {

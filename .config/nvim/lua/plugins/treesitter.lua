@@ -7,12 +7,14 @@ require("nvim-treesitter").setup({
         "cpp", 
         "python", 
         "markdown",
-        "lua" 
+        "lua",
+        "asm",
     },
     sync_install = false,
     auto_install = true,
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
+        disable = { "asm" },
     },
 })
