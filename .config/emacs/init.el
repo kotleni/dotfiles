@@ -1,6 +1,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'binds)
+(require 'startup-screen)
 (require 'elcord)
 
 ; enable & configure elcord
@@ -18,6 +19,7 @@
 (load-theme 'modus-vivendi)
 (setopt
  inhibit-startup-screen t
+ initial-buffer-choice #'render-startup-screen ; from lisp/startup-screen.el
  initial-scratch-message nil
  menu-bar-mode nil
  tool-bar-mode nil
@@ -27,15 +29,6 @@
  cursor-type 'bar
  tab-bar-show nil
  tab-bar-close-button-show nil)
-
-; startup performance metrics
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs loaded in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
 
 ; line numbers
 (display-line-numbers-mode t)
