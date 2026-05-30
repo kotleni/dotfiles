@@ -1,9 +1,9 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'binds)
-(require 'startup-screen)
 (require 'packages)
 (require 'elcord)
+(require 'startup-screen)
 
 ;; enable & configure elcord
 (elcord-mode)
@@ -24,7 +24,6 @@
 (load-theme 'modus-vivendi)
 (setopt
  inhibit-startup-screen t
- initial-buffer-choice #'render-startup-screen ;; from lisp/startup-screen.el
  initial-scratch-message nil
  menu-bar-mode nil
  tool-bar-mode nil

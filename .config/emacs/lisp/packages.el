@@ -39,4 +39,8 @@
   :config
   (setq typescript-indent-level 4))
 
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
 (provide 'packages)

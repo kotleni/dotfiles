@@ -1,22 +1,13 @@
-(defvar startup-ascii-art-path "~/.config/emacs/startup-art.txt"
-  "Path to the plain text file containing ASCII art.")
+;; https://github.com/emacs-dashboard/dashboard
 
-(defun render-startup-screen ()
-  "Render startup screen."
-  (let ((buf (get-buffer-create "*dashboard*")))
-    (with-current-buffer buf
-      (read-only-mode -1)
-      (erase-buffer)
-      (setq-local cursor-type nil)
-      
-      (if (file-exists-p startup-ascii-art-path)
-          (insert-file-contents startup-ascii-art-path)
-        (insert "    Failed to load startup-art.txt!\n")) ;; Fallback string
-      (insert "\n")
-      
-      (goto-char (point-min))
-      (read-only-mode 1))
-    buf))
+(setq dashboard-banner-logo-title "Welcome to Emacs")
+(setq dashboard-startup-banner 'logo-braille)
+(setq dashboard-center-content t)
+(setq dashboard-vertically-center-content t)
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-items '((recents   . 5)
+                        (bookmarks . 5)
+                        (projects  . 5)))
 
 ;; startup performance metrics
 (add-hook 'emacs-startup-hook
