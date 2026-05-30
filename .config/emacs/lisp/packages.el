@@ -39,4 +39,4 @@
   :config
   (setq typescript-indent-level 4))
 
-(provide 'plugins)
+(provide 'packages)

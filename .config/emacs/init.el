@@ -2,9 +2,8 @@
 
 (require 'binds)
 (require 'startup-screen)
-(require 'plugins)
+(require 'packages)
 (require 'elcord)
-
 
 ;; enable & configure elcord
 (elcord-mode)
