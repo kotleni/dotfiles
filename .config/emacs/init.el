@@ -4,7 +4,7 @@
 (require 'startup-screen)
 (require 'elcord)
 
-; enable & configure elcord
+;; enable & configure elcord
 (elcord-mode)
 (setq elcord-refresh-rate 15)
 (setq elcord-idle-timer 600)
@@ -15,15 +15,15 @@
 
 (setq inhibit-startup-screen t)
 
-; font
+;; font
 (add-to-list 'default-frame-alist
              '(font . "Iosevka Nerd Font Mono"))
 
-; visual
+;; visual
 (load-theme 'modus-vivendi)
 (setopt
  inhibit-startup-screen t
- initial-buffer-choice #'render-startup-screen ; from lisp/startup-screen.el
+ initial-buffer-choice #'render-startup-screen ;; from lisp/startup-screen.el
  initial-scratch-message nil
  menu-bar-mode nil
  tool-bar-mode nil
@@ -34,16 +34,17 @@
  tab-bar-show nil
  tab-bar-close-button-show nil)
 
-; line numbers
-(display-line-numbers-mode t)
+;; line numbers
+(global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
 
-; use 4-spaces indent
+;; use 4-spaces indent
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq-default comment-column 4)
 
-; force tab to insert 4-spaces instead of syntax based insertion 
-; (global-set-key (kbd "TAB") (lambda () (interactive) (insert-char ?\s 4)))
+;; force tab to insert 4-spaces instead of syntax based insertion 
+;; (global-set-key (kbd "TAB") (lambda () (interactive) (insert-char ?\s 4)))
 
-; auto-reload changed files from disk 
+;; auto-reload changed files from disk 
 (global-auto-revert-mode 1)

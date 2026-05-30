@@ -8,18 +8,17 @@
       (read-only-mode -1)
       (erase-buffer)
       (setq-local cursor-type nil)
-;      (setq-local mode-line-format nil)
       
       (if (file-exists-p startup-ascii-art-path)
           (insert-file-contents startup-ascii-art-path)
-        (insert "    Failed to load startup-art.txt!\n")) ; Fallback string
+        (insert "    Failed to load startup-art.txt!\n")) ;; Fallback string
       (insert "\n")
       
       (goto-char (point-min))
       (read-only-mode 1))
     buf))
 
-; startup performance metrics
+;; startup performance metrics
 (add-hook 'emacs-startup-hook
           (lambda ()
             (message "Emacs loaded in %s with %d garbage collections."
