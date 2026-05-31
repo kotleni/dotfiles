@@ -1,11 +1,11 @@
 (defvar theme-light 'modus-operandi)
-(defvar theme-dark 'mobus-vivendi)
+(defvar theme-dark 'modus-vivendi)
 
 (defun apply-theme (mode)
   "Switch Emacs theme based on system MODE"
   (cond
-     ((eq mode 'light) (load-theme theme-light t))
-     ((eq mode 'dark)  (load-theme theme-dark t))))
+   ((eq mode 'light) (load-theme theme-light t))
+   ((eq mode 'dark)  (load-theme theme-dark t))))
 
 (defun sync-system-theme ()
   "Sync theme to defined by gtk"
