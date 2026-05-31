@@ -4,6 +4,7 @@
 (require 'packages)
 (require 'elcord)
 (require 'startup-screen)
+(require 'theme)
 
 ;; emacs generated code
 (setq custom-file (expand-file-name "generated.el" user-emacs-directory))
@@ -26,7 +27,6 @@
              '(font . "Iosevka Nerd Font Mono"))
 
 ;; visual
-(load-theme 'modus-vivendi)
 (setopt
  inhibit-startup-screen t
  initial-scratch-message nil
