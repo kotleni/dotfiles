@@ -16,6 +16,15 @@
   (text-mode-ispell-word-completion nil)
   (read-extended-command-predicate #'command-completion-default-include-p))
 
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-scroll-output 'first-error)
+  (compilation-always-kill t)
+  :config
+  ;; Force color support in compilation buffers
+  (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter))
+
 (use-package magit)
 
 (use-package corfu
@@ -24,6 +33,10 @@
   (setq corfu-auto t)
   :config
   (global-corfu-mode))
+
+(use-package apheleia
+  :config
+  (apheleia-global-mode +1))
 
 (use-package treesit
   :ensure nil
