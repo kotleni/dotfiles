@@ -609,8 +609,14 @@ If no text is available, use the value of `mode-name'."
        (cons "small_text" small-text))))))
 
 (defun elcord-buffer-details-format ()
-  "Return the buffer details string shown on discord."
-  (format "Editing %s" (buffer-name)))
+  "Return the buffer details string shown on discord, truncated if too long."
+  (let* ((file-path (buffer-file-name))
+         (display-name (if file-path (abbreviate-file-name file-path) (buffer-name)))
+         (threshold 34))
+    (format "%s"
+            (if (> (length display-name) threshold)
+                (concat "..." (substring display-name (- (length display-name) threshold)))
+              display-name))))
 
 (defun elcord--details-and-state ()
   "Obtain the details and state to use for Discord's Rich Presence."
