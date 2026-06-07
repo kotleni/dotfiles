@@ -14,5 +14,5 @@ cursor-style-blink = true
 desktop-notifications = false
 app-notifications = false
 
-# custom-shader = "~/.config/ghostty/shaders/blaze.glsl"
+# custom-shader = "~/.config/ghostty/shaders/cubes.glsl"
 theme = dark:Gruvbox Dark,light:GitHub
