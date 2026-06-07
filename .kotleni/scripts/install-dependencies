@@ -10,28 +10,17 @@ arch_packages=(\
     pipewire-jack power-profiles-daemon \
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
     hyprpolkitagent slurp \
-    npm nodejs unzip \
+    unzip \
     gpu-screen-recorder \
     wiremix ripgrep \
-)
 
-fedora_packages=(\
-    hyprland hypridle hyprlock hyprpaper \
-    waybar cascadia-code-fonts \
-    xdg-desktop-portal-hyprland grim \
-    wl-clipboard zsh rofi-wayland kitty \
-    pipewire-utils power-profiles-daemon \
-    adw-gtk3-theme qt5ct qt6ct kvantum \
-    dolphin ark gwenview slurp bluez \
-    npm nodejs unzip \
+    # Development
+    clang clangd npm nodejs \
 )
 
 if command -v pacman >/dev/null; then
     echo "Arch Linux detected!"
     sudo pacman -Sy --needed "${arch_packages[@]}"
-elif command -v dnf >/dev/null; then
-    echo "Fedora detected!"
-    sudo dnf install --skip-broken -y "${fedora_packages[@]}"
 else
     echo "Unsupported distribution."
     exit 1
