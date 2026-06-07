@@ -5,6 +5,9 @@
 (require 'elcord)
 (require 'startup-screen)
 (require 'theme)
+;; (require 'simpc-mode)
+
+;; (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
 ;; emacs generated code
 (setq custom-file (expand-file-name "generated.el" user-emacs-directory))
