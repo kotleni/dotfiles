@@ -33,15 +33,15 @@ require('lazy').setup({
         lazy = false,
         build = ":TSUpdate",
     },
-    {
-        dir = vim.fn.stdpath("config") .. "/localplugins/mason.nvim",
-        name = "mason.nvim",
-        lazy = false,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
-    },
+--     {
+--         dir = vim.fn.stdpath("config") .. "/localplugins/mason.nvim",
+--         name = "mason.nvim",
+--         lazy = false,
+--     },
+--     {
+--         "williamboman/mason-lspconfig.nvim",
+--         lazy = false,
+--     },
     {
         "neovim/nvim-lspconfig",
         lazy = false,
@@ -97,7 +97,7 @@ require('plugins.markdown-render')
 require('plugins.autopairs')
 require('plugins.telescope')
 require('plugins.treesitter')
-require('plugins.mason')
+require('plugins.lspconfig')
 require('plugins.blink')
 require('plugins.lualine')
 require('plugins.eslint')
