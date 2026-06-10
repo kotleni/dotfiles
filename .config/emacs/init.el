@@ -7,12 +7,18 @@
 (require 'theme)
 ;; (require 'simpc-mode)
 
+;; Forse modes by file extention
 ;; (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
 ;; emacs generated code
 (setq custom-file (expand-file-name "generated.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; TODO: Use expand-file-name for path's
+;; set backups and autosave folders
+(setq backup-directory-alist `(("." . "~/.confing/emacs/backups/")))
+(setq auto-save-file-name-transforms `((".*" "~/.config/emacs/auto-save/" t)))
 
 ;; enable & configure elcord
 (elcord-mode)
@@ -56,3 +62,4 @@
 
 ;; auto-reload changed files from disk 
 (global-auto-revert-mode 1)
+

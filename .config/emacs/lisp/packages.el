@@ -25,7 +25,10 @@
   (compilation-scroll-output 'first-error)
   (compilation-always-kill t))
 
-(use-package magit)
+(use-package magit
+  :custom
+  (setq auto-revert-check-vc-info t)
+  (global-auto-revert-mode 1))
 
 (use-package consult
   :bind (
@@ -38,12 +41,6 @@
   (vertico-mode 1)
   :custom
   (vertico-cycle t))
-
-(use-package consult
-  :bind (
-         ("C-p" . consult-find)
-         ("M-g g" . consult-ripgrep)
-         ("C-x b" . consult-buffer)))
 
 (use-package cape
   :init
@@ -101,6 +98,13 @@
   (setq typescript-ts-mode-indent-offset 4))
 
 (use-package zig-mode)
+
+(use-package cmake-mode
+  :ensure t
+  :mode (("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode))
+  :custom
+  (cmake-tab-width 4))
 
 (use-package dashboard
   :config
