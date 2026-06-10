@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -z "$XDG_RUNTIME_DIR" ]; then
+    export XDG_RUNTIME_DIR=/tmp/xdg-runtime-$(id -u)
+    mkdir -p "$XDG_RUNTIME_DIR"
+    chmod 700 "$XDG_RUNTIME_DIR"
+fi
+
+exec dwl -s "bash $HOME/.kotleni/scripts/dwl-autostart &"

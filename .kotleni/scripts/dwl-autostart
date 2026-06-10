@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+export XDG_CURRENT_DESKTOP=wlroots
+export XDG_SESSION_TYPE=wayland
+
+killall -q waybar swaync
+
+swaync &
+waybar &
+
+cat > /dev/null
