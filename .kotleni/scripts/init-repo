@@ -4,3 +4,6 @@ git init
 git remote add origin git@github.com:kotleni/.dotfiles.git
 git fetch
 git checkout -f master
+
+# Rename .git folder, to be used with dotfilesgit
+mv .git .dotfilesgit

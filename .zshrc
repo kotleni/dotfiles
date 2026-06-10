@@ -6,13 +6,14 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
-export EDITOR='nvim'
+export EDITOR='emacs'
 export ARCHFLAGS="-arch $(uname -m)"
-export TERM="xterm-kitty"
+export TERM="xterm"
 
 alias e="$EDITOR $@"
 alias open="xdg-open $@"
 # alias ssh="kitty +kitten ssh"
+alias dotfilesgit='/usr/bin/git --git-dir=$HOME/.dotfilesgit/ --work-tree=$HOME'
 
 # Colorize man & less pages
 export LESS_TERMCAP_mb=$'\e[1;34m'     # begin bold
