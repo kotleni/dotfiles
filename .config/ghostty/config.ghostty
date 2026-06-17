@@ -14,5 +14,8 @@ cursor-style-blink = true
 desktop-notifications = false
 app-notifications = false
 
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
 # custom-shader = "~/.config/ghostty/shaders/cubes.glsl"
 theme = dark:Gruvbox Dark,light:GitHub
