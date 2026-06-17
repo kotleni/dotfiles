@@ -608,15 +608,23 @@ If no text is available, use the value of `mode-name'."
        (cons "large_image" large-image)
        (cons "small_text" small-text))))))
 
+(defun elcord--get-project-name (project)
+  "Extract the directory name of the PROJECT root."
+  (file-name-nondirectory (directory-file-name (project-root project))))
+
+(defun elcord--truncate-string (str threshold)
+  "Truncate STR from the left with ellipsis if it exceeds THRESHOLD."
+  (if (> (length str) threshold)
+      (concat "..." (substring str (- (length str) threshold)))
+    str))
+
 (defun elcord-buffer-details-format ()
-  "Return the buffer details string shown on discord, truncated if too long."
-  (let* ((file-path (buffer-file-name))
-         (display-name (if file-path (abbreviate-file-name file-path) (buffer-name)))
-         (threshold 34))
-    (format "%s"
-            (if (> (length display-name) threshold)
-                (concat "..." (substring display-name (- (length display-name) threshold)))
-              display-name))))
+  "Return the buffer details string shown on Discord."
+  (let* ((project (project-current))
+         (details (if project
+                      (format "Editing %s in %s" (buffer-name) (elcord--get-project-name project))
+                    (format "Editing %s" (buffer-name)))))
+    (elcord--truncate-string details 34)))
 
 (defun elcord--details-and-state ()
   "Obtain the details and state to use for Discord's Rich Presence."

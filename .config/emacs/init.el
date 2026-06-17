@@ -23,8 +23,8 @@
 ;; enable & configure elcord
 (elcord-mode)
 (setq elcord-refresh-rate 15)
-(setq elcord-idle-timer 600)
-(setq elcord-idle-message "Digging a hole...")
+(setq elcord-idle-timer 2600)
+(setq elcord-idle-message "Idling...")
 (setq elcord-quiet t)
 (setq elcord-display-buffer-details t)
 (setq elcord-display-line-numbers nil)
