@@ -2,20 +2,10 @@
 
 # todo: install speakersafetyd on asahi linux only
 arch_packages=(\
-    hyprland hypridle hyprlock hyprpaper \
-    waybar \
-    xdg-desktop-portal-hyprland grim \
-    wl-clipboard zsh rofi kitty ttf-cascadia-mono-nerd \
+    wl-clipboard zsh ttf-cascadia-mono-nerd \
     pipewire pipewire-alsa pipewire-pulse \
-    pipewire-jack power-profiles-daemon \
+    power-profiles-daemon \
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
-    hyprpolkitagent slurp \
-    unzip \
-    gpu-screen-recorder \
-    wiremix ripgrep \
-
-    # Development
-    clang clangd npm nodejs \
 )
 
 if command -v pacman >/dev/null; then
