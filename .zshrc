@@ -6,7 +6,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
-export EDITOR='emacs'
+export EDITOR='nvim'
 export ARCHFLAGS="-arch $(uname -m)"
 export TERM="xterm"
 
