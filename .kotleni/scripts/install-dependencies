@@ -6,6 +6,9 @@ arch_packages=(\
     pipewire pipewire-alsa pipewire-pulse \
     power-profiles-daemon \
     adw-gtk-theme qt5ct qt6ct kvantum kvantum breeze-icons \
+
+    # nvim
+    tree-sitter-cli fd lua-language-server rust-analyzer
 )
 
 if command -v pacman >/dev/null; then
