@@ -10,12 +10,13 @@
 !/.config/
 /.config/*
 
-!/.config/ghostty/
-!/.config/hypr/
-!/.config/waybar/
-!/.config/rofi/
+# !/.config/ghostty/
+# !/.config/hypr/
+# !/.config/waybar/
+# !/.config/rofi/
+# !/.config/swaync/
 !/.config/fastfetch/
 !/.config/nvim/
-!/.config/tmux/
 !/.config/emacs/
-!/.config/swaync/
+!/.config/tmux/
+!/.config/kitty/
