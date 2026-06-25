@@ -1,6 +1,47 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- You need to install depndencies to make it work.
+--
+-- pacman -S lua-language-server clang pyright rust-analyzer
+-- sudo npm install -g typescript typescript-language-server \
+--     vscode-langservers-extracted \
+--     @tailwindcss/language-server \
+--     @vue/language-server @vue/typescript-plugin 
+-- cargo install asm-lsp
 
-vim.lsp.config("ts_ls", {})
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+vim.lsp.config("ts_ls", {
+    capabilities = capabilities,
+    init_options = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = vim.fn.system("npm root -g"):gsub("\n", "") .. "/@vue/typescript-plugin",                
+                languages = { "javascript", "typescript", "vue" },
+            },
+        },
+    },
+    filetypes = {
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "vue",
+    },
+})
+
+vim.lsp.config("vue_ls", {
+    filetypes = { "vue" },
+})
+
+vim.lsp.config("cssls", {
+    capabilities = capabilities,
+})
+
+vim.lsp.config("tailwindcss", {
+    capabilities = capabilities,
+})
+
 vim.lsp.config("pyright", {})
 vim.lsp.config("clangd", {})
 
@@ -26,11 +67,14 @@ vim.lsp.config("rust_analyzer", {
     },
 })
 
-
 vim.lsp.enable({
     "lua_ls",
     "ts_ls",
+    "vue_ls",
+    "cssls",
+    "tailwindcss",
     "pyright",
     "clangd",
     "rust_analyzer",
-}) 
+})
+

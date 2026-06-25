@@ -33,15 +33,6 @@ require('lazy').setup({
         lazy = false,
         build = ":TSUpdate",
     },
---     {
---         dir = vim.fn.stdpath("config") .. "/localplugins/mason.nvim",
---         name = "mason.nvim",
---         lazy = false,
---     },
---     {
---         "williamboman/mason-lspconfig.nvim",
---         lazy = false,
---     },
     {
         "neovim/nvim-lspconfig",
         lazy = false,
