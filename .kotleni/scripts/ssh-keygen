@@ -13,7 +13,7 @@ eval "$(ssh-agent -s)"
 for EMAIL in "$@"; do
     TARGET_KEY="$HOME/.ssh/${FILENAME}_${EMAIL//[^a-zA-Z0-9]/_}"
 
-    ssh-keygen -t ed25519 -C "$EMAIL" -f "$TARGET_KEY" -N ""
+    ssh-keygen -t ed25519 -C "$EMAIL" -f "$TARGET_KEY"
     ssh-add "$TARGET_KEY"
     cat "${TARGET_KEY}.pub"
     echo "----------------------------------------"
