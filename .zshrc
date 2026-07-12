@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="lambda"
+ZSH_THEME="gentoo"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -12,8 +12,7 @@ export TERM="xterm"
 
 alias e="$EDITOR $@"
 alias open="xdg-open $@"
-# alias ssh="kitty +kitten ssh"
-alias dotfilesgit='/usr/bin/git --git-dir=$HOME/.dotfilesgit/ --work-tree=$HOME'
+alias dfgit='/usr/bin/git --git-dir=$HOME/.dotfilesgit/ --work-tree=$HOME'
 
 # Colorize man & less pages
 export LESS_TERMCAP_mb=$'\e[1;34m'     # begin bold
