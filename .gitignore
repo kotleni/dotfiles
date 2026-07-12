@@ -10,7 +10,7 @@
 !/.config/
 /.config/*
 
-# !/.config/ghostty/
+!/.config/ghostty/
 # !/.config/hypr/
 # !/.config/waybar/
 # !/.config/rofi/
@@ -19,4 +19,6 @@
 !/.config/nvim/
 !/.config/emacs/
 !/.config/tmux/
+
+# Deprecated
 !/.config/foot/

@@ -2,7 +2,7 @@ command = /usr/bin/zsh
 term = xterm-256color
 
 font-family = "Iosevka Nerd Font Mono"
-font-thicken = true
+font-thicken = false
 font-size = 12
 font-feature = -calt, -liga
 
@@ -18,4 +18,4 @@ keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
 # custom-shader = "~/.config/ghostty/shaders/cubes.glsl"
-theme = dark:Gruvbox Dark,light:GitHub
+theme = dark:Bluloco Dark,light:Bluloco Light
