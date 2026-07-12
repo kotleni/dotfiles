@@ -57,3 +57,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
+-- Remove bg from indent characters
+local group = vim.api.nvim_create_augroup("TransparentTabs", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = group,
+    callback = function()
+        vim.api.nvim_set_hl(0, "Whitespace", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "SpecialKey", { bg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NonText",    { bg = "NONE", ctermbg = "NONE" })
+    end,
+})

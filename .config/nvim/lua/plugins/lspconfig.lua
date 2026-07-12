@@ -1,6 +1,6 @@
 -- You need to install depndencies to make it work.
 --
--- pacman -S lua-language-server clang pyright rust-analyzer
+-- pacman -S lua-language-server clang pyright rust-analyzer gopls
 -- sudo npm install -g typescript typescript-language-server \
 --     vscode-langservers-extracted \
 --     @tailwindcss/language-server \
@@ -67,6 +67,14 @@ vim.lsp.config("rust_analyzer", {
     },
 })
 
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            semanticTokens = false,
+        },
+    },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "ts_ls",
@@ -76,5 +84,13 @@ vim.lsp.enable({
     "pyright",
     "clangd",
     "rust_analyzer",
+    "gopls",
 })
 
+vim.filetype.add({
+  extension = {
+    vsh = 'glsl',
+    fsh = 'glsl',
+    gsh = 'glsl',
+  },
+})
