@@ -1,4 +1,4 @@
-command = /usr/bin/zsh
+# command = /usr/bin/zsh
 term = xterm-256color
 
 font-family = "Iosevka Nerd Font Mono"
