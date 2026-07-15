@@ -8,4 +8,4 @@
 [e - prev error in file
 
 <leader>tc - compile via 'pnpm exec tsc'
-<leader>fj - reformat code with 'pnm run format'
+<leader>tj - reformat code with 'pnm run format'

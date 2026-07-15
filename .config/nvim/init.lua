@@ -1,3 +1,8 @@
+-- Dependencies required:
+-- pacman -S tree-sitter ripgrep fd rustup npm
+-- brew install tree-sitter ripgrep fd npm rustup
+-- rustup component add rust-analyzer rust-src clippy rustfmt
+
 require('base')
 require('binds')
 
@@ -12,71 +17,33 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-require('lazy').setup({
-    {
-        "ellisonleao/gruvbox.nvim",
-        lazy = false,
-        priority = 99,
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
-        lazy = false,
-    },
-    {
-        'nvim-telescope/telescope.nvim',
-        enabled = true,
-        event = 'VimEnter',
-        requires = { 'nvim-lua/plenary.nvim' }
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        build = ":TSUpdate",
-    },
-    {
-        "neovim/nvim-lspconfig",
-        lazy = false,
-    },
-    {
-        "esmuellert/nvim-eslint",
-        lazy = false,
-    },
-    {
-        "windwp/nvim-autopairs",
-        lazy = false,
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        lazy = false,
-    },
-    {
-        "MeanderingProgrammer/render-markdown.nvim",
-        lazy = false,
-    },
-    {
-        "saghen/blink.cmp",
-        dependencies = { 'saghen/blink.lib' },
-        build = function()
-            require('blink.cmp').build():wait(4000)
-        end,
-        lazy = false,
-    },
-    {
-        "nvim-telescope/telescope-ui-select.nvim",
-        lazy = false,
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        lazy = false,
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        lazy = false,
-    },
-    {
-        "vyfor/cord.nvim",
-        lazy = true,
-    },
+require("lazy").setup({
+  "ellisonleao/gruvbox.nvim",
+  "nvim-tree/nvim-web-devicons",
+
+  { "nvim-lua/plenary.nvim" },
+  { "nvim-telescope/telescope.nvim" },
+  { "nvim-telescope/telescope-ui-select.nvim" },
+
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+  "mason-org/mason.nvim",
+  { "mason-org/mason-lspconfig.nvim", dependencies = { "neovim/nvim-lspconfig" } },
+  "esmuellert/nvim-eslint",
+
+  "windwp/nvim-autopairs",
+  "norcalli/nvim-colorizer.lua",
+
+  {
+    "Saghen/blink.cmp",
+    dependencies = { "Saghen/blink.lib" },
+    build = "cargo build --release",
+  },
+
+  "nvim-lualine/lualine.nvim",
+  "lewis6991/gitsigns.nvim",
+
+  { "vyfor/cord.nvim", lazy = true },
 })
 
 -- Local plugins
@@ -84,10 +51,10 @@ require('plugins.hope')
 
 -- Plugins configs
 require('plugins.theme')
-require('plugins.markdown-render')
 require('plugins.autopairs')
 require('plugins.telescope')
 require('plugins.treesitter')
+require('plugins.mason')
 require('plugins.lspconfig')
 require('plugins.blink')
 require('plugins.lualine')

@@ -42,7 +42,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Actions" })
 
 -- Reformat for web dev
-vim.keymap.set('n', '<leader>fj', function()
+vim.keymap.set('n', '<leader>tj', function()
   vim.cmd('write')
   vim.system({'npm', 'run', 'format'}, {}, function(obj)
     vim.schedule(function()

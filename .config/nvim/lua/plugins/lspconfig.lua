@@ -1,13 +1,3 @@
--- You need to install depndencies to make it work.
---
--- pacman -S lua-language-server clang pyright rust-analyzer gopls
--- sudo npm install -g typescript typescript-language-server \
---     vscode-langservers-extracted \
---     @tailwindcss/language-server \
---     @vue/language-server @vue/typescript-plugin 
--- cargo install asm-lsp
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 vim.lsp.config("ts_ls", {
@@ -74,6 +64,20 @@ vim.lsp.config("gopls", {
         },
     },
 })
+
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "vue_ls",
+        "cssls",
+        "tailwindcss",
+        "pyright",
+        "clangd",
+        "rust_analyzer",
+        "gopls",
+    },
+}
 
 vim.lsp.enable({
     "lua_ls",
