@@ -1,0 +1,6 @@
+[general]
+live_config_reload =  true
+ipc_socket = false
+
+[terminal]
+shell = { program = "/bin/zsh" }

@@ -10,11 +10,9 @@
 !/.config/
 /.config/*
 
-!/.config/ghostty/
-# !/.config/hypr/
+!/.config/alacritty/
+!/.config/niri/
 # !/.config/waybar/
-# !/.config/rofi/
-# !/.config/swaync/
 !/.config/fastfetch/
 !/.config/nvim/
 !/.config/emacs/
@@ -22,3 +20,7 @@
 
 # Deprecated
 !/.config/foot/
+!/.config/ghostty/
+!/.config/swaync/
+!/.config/rofi/
+!/.config/hypr/
