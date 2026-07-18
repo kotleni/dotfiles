@@ -82,7 +82,7 @@ input {
 }
 
 layout {
-    gaps 8
+    gaps 6
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -234,6 +234,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
+spawn-at-startup "swaync"
 
 hotkey-overlay {
     skip-at-startup
