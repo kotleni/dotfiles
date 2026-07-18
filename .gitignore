@@ -11,16 +11,14 @@
 /.config/*
 
 !/.config/alacritty/
-!/.config/niri/
-# !/.config/waybar/
+!/.config/sway/
+!/.config/i3status/
+!/.config/swaync/
+!/.config/qt5ct/
+!/.config/qt6ct/
 !/.config/fastfetch/
+
 !/.config/nvim/
 !/.config/emacs/
 !/.config/tmux/
 
-# Deprecated
-!/.config/foot/
-!/.config/ghostty/
-!/.config/swaync/
-!/.config/rofi/
-!/.config/hypr/

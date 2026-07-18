@@ -1,0 +1,49 @@
+general {
+    colors = true
+    interval = 5
+}
+
+# order += "ipv6"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+# order += "load"
+order += "tztime local"
+
+cpu_temperature 0 {
+    format = "Tea: %degrees °C"
+}
+
+wireless _first_ {
+    # format_up = "W: (%quality at %essid) %ip"
+    format_up = "W: (%quality) Leaked IP: %ip"
+    format_down = "W: down"
+}
+
+ethernet _first_ {
+    format_up = "E: %ip"
+    format_down = "E: down"
+}
+
+battery all {
+    format = "Battery: %percentage %status %remaining"
+}
+
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+    format = "Hot Loads: %1min"
+}
+
+disk "/" {
+    format = "Storage: %avail"
+}
+
+ipv6 {
+    format_up = "Useless Protocol: %ipv6"
+    format_down = "Useless Protocol: Down"
+}
