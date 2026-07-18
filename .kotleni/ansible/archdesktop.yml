@@ -1,0 +1,57 @@
+- name: Arch Linux Desktop
+  hosts: local
+  become: true
+  tasks:
+    - name: Update package cache and upgrade system
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: Install base packages
+      community.general.pacman:
+        name:
+          - git
+          - tmux
+          - fastfetch
+          - rust
+          - npm
+          - go
+        state: present
+
+    - name: Install nvim packages
+      community.general.pacman:
+        name:
+          - neovim
+          - fuzzel
+          - fd
+          - ripgrep
+          - tree-sitter-cli
+
+    - name: Install desktop packages
+      community.general.pacman:
+        name:
+          - sway
+          - swaybg
+          - swaylock
+          - swayidle
+          - swaync
+          - i3status
+          - wmenu
+          - xdg-desktop-portal
+          - xdg-desktop-portal-wlr
+          - wireplumber
+          - pipewire
+          - pipewire-alsa
+          - pipewire-pulse
+          - qt5ct
+          - qt6ct
+          - alacritty
+
+    - name: Enable and start xdg-desktop-portal
+      ansible.builtin.systemd:
+        name: xdg-desktop-portal
+        state: started
+        scope: user
+        enabled: true
+      become: false
+
