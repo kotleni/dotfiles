@@ -171,4 +171,5 @@ bar {
         urgent_workspace   $cute_red   $cute_red   $cute_base
     }
 }
+
 include @sysconfdir@/sway/config.d/*
