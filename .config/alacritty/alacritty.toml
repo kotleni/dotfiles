@@ -2,5 +2,9 @@
 live_config_reload =  true
 ipc_socket = false
 
+[window]
+opacity = 0.96
+blur = true
+
 [terminal]
 shell = { program = "/bin/zsh" }
