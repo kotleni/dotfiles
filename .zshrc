@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export ARCHFLAGS="-arch $(uname -m)"
-export TERM="xterm"
+export TERM="xterm-256color"
 
 alias e="$EDITOR $@"
 alias open="xdg-open $@"
