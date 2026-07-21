@@ -48,6 +48,7 @@ require("lazy").setup({
 
 -- Local plugins
 require('plugins.hope')
+require('plugins.kbdloverlay')
 
 -- Plugins configs
 require('plugins.theme')
