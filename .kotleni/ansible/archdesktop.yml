@@ -16,6 +16,7 @@
           - rust
           - npm
           - go
+          - jq
         state: present
 
     - name: Install nvim packages
