@@ -15,6 +15,10 @@ exec swayidle -w \
          timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 exec swaync
+exec neru launch
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP
 
 input type:touchpad {
     dwt enabled
@@ -24,7 +28,8 @@ input type:touchpad {
 }
 
 input type:keyboard {
-    # xkb_layout "eu"
+    xkb_layout "us,canary"
+    xkb_options "grp:win_space_toggle"
 }
 
 floating_modifier $mod normal
@@ -142,6 +147,8 @@ bindsym $mod+d exec $menu
 
 bindsym $mod+o exec grim -c ~/Pictures/$(date +'%Y-%m-%d-%H%M%S_grim.png') && mpv --no-video ~/.kotleni/pop.mp3
 bindsym $mod+Mod1+o exec grim -g "$(slurp)" - | wl-copy
+
+bindsym $mod+g exec neru recursive_grid
 
 set $cute_red    #f38ba8
 set $cute_blush  #f5e0dc
