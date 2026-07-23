@@ -18,7 +18,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "ellisonleao/gruvbox.nvim",
+--  "ellisonleao/gruvbox.nvim",
   "nvim-tree/nvim-web-devicons",
 
   { "nvim-lua/plenary.nvim" },
@@ -51,7 +51,7 @@ require('plugins.hope')
 require('plugins.kbdloverlay')
 
 -- Plugins configs
-require('plugins.theme')
+-- require('plugins.theme')
 require('plugins.autopairs')
 require('plugins.telescope')
 require('plugins.treesitter')

@@ -9,7 +9,7 @@ vim.o.mouse = ''
 vim.o.showmode = false
 vim.o.breakindent = true
 vim.o.cursorline = true
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.cmdheight = 0
 vim.opt.relativenumber = true
 

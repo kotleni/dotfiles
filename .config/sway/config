@@ -5,7 +5,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu wmenu-run
+set $menu rofi -show drun
 
 output DP-2 resolution 1920x1080 position 0,0
 output * bg ~/.kotleni/evangelion_red.png fill
@@ -29,7 +29,7 @@ input type:touchpad {
 
 input type:keyboard {
     xkb_layout "us,canary"
-    xkb_options "grp:win_space_toggle"
+    xkb_options "grp:win_space_toggle,caps:escape"
 }
 
 floating_modifier $mod normal
@@ -148,7 +148,16 @@ bindsym $mod+d exec $menu
 bindsym $mod+o exec grim -c ~/Pictures/$(date +'%Y-%m-%d-%H%M%S_grim.png') && mpv --no-video ~/.kotleni/pop.mp3
 bindsym $mod+Mod1+o exec grim -g "$(slurp)" - | wl-copy
 
+bindsym $mod+f7 exec ~/.kotleni/scripts/switch-theme
+
 bindsym $mod+g exec neru recursive_grid
+
+bindsym $mod+Shift+r exec sh -c '\
+  if pkill -SIGINT gpu-screen-doc; then \
+    notify-send "Screen Recorder" "Recording saved to ~/Videos" -i video-x-generic; \
+  else \
+    gpu-screen-recorder -w root -f 60 -a default_output -o "$HOME/Videos/rec_$(date +%Y-%m-%d_%H-%M-%S).mp4"; \
+  fi'
 
 set $cute_red    #f38ba8
 set $cute_blush  #f5e0dc

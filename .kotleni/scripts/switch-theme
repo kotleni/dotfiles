@@ -3,11 +3,10 @@
 QT5="$HOME/.config/qt5ct/qt5ct.conf"
 QT6="$HOME/.config/qt6ct/qt6ct.conf"
 
-function ghostty_update_theme() {
-    killall -SIGUSR2 ghostty 2>/dev/null
-}
-
 CURRENT_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+TERM_LIGHT_THEME="$(cat "$HOME/.config/alacritty/light.toml")"
+TERM_DARK_THEME="$(cat "$HOME/.config/alacritty/dark.toml")"
 
 if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
     echo 'light'
@@ -20,7 +19,7 @@ if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
     sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/airy.conf|' "$QT6"
     sed -i 's|icon_theme=.*|icon_theme=breeze|' "$QT6"
 
-    ghostty_update_theme
+    alacritty msg config "$TERM_LIGHT_THEME"
 else
     echo 'dark'
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
@@ -32,5 +31,5 @@ else
     sed -i 's|color_scheme_path=.*|color_scheme_path=/usr/share/qt6ct/colors/darker.conf|' "$QT6"
     sed -i 's|icon_theme=.*|icon_theme=breeze-dark|' "$QT6"
 
-    ghostty_update_theme
+    alacritty msg config "$TERM_DARK_THEME"
 fi
