@@ -1,0 +1,30 @@
+set $cute_red    #f38ba8
+set $cute_blush  #f5e0dc
+set $cute_base   #1c1919
+set $cute_text   #fcf5f5
+set $cute_mute   #4a3e3e
+set $cute_surf   #2d2525
+
+client.focused          $cute_red   $cute_base $cute_text $cute_red   $cute_red
+client.focused_inactive $cute_mute  $cute_base $cute_text $cute_mute  $cute_mute
+client.unfocused        $cute_mute  $cute_base $cute_text $cute_mute  $cute_mute
+
+default_border pixel 2
+default_floating_border pixel 2
+
+bar {
+    position top
+    status_command i3blocks
+    font pango:Iosevka Nerd Font 10
+
+    colors {
+        statusline         $cute_text
+        background         $cute_base
+        separator          $cute_mute
+        focused_workspace  $cute_red   $cute_red   $cute_base
+        active_workspace   $cute_blush $cute_blush $cute_base
+        inactive_workspace $cute_surf  $cute_surf  $cute_text
+        urgent_workspace   $cute_red   $cute_red   $cute_base
+    }
+}
+

@@ -1,0 +1,17 @@
+bindsym $mod+Mod1+L exec swaylock
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+
+bindsym $mod+Shift+q exec sh -c '\
+  pid=$(swaymsg -t get_tree | jq -r "..|select(.focused==true)?.pid"); \
+  [ -n "$pid" ] && kill -9 "$pid"'
+
+bindsym $mod+o exec grim -c ~/Pictures/$(date +'%Y-%m-%d-%H%M%S_grim.png') && mpv --no-video ~/.kotleni/pop.mp3
+bindsym $mod+Mod1+o exec grim -g "$(slurp)" - | wl-copy
+
+bindsym $mod+f7 exec ~/.kotleni/scripts/switch-theme
+
+bindsym $mod+g exec neru recursive_grid
+
+bindsym $mod+Shift+r exec ~/.kotleni/scripts/gsr-toggle.sh
+

@@ -1,0 +1,11 @@
+exec swayidle -w \
+         timeout 400 'swaylock -f -c 000000' \
+         timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+exec swaync
+exec neru launch
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP
+exec /usr/lib/polkit-kde-authentication-agent-1
+

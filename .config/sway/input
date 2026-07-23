@@ -1,0 +1,12 @@
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+input type:keyboard {
+    xkb_layout "us,canary"
+    xkb_options "grp:win_space_toggle,caps:escape"
+}
+
