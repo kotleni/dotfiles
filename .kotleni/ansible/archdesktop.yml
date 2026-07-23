@@ -41,6 +41,7 @@
           - wmenu
           - xdg-desktop-portal
           - xdg-desktop-portal-wlr
+          - hyprpolkitagent
           - wireplumber
           - pipewire
           - pipewire-alsa
