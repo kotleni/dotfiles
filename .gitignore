@@ -13,6 +13,7 @@
 !/.config/alacritty/
 !/.config/sway/
 !/.config/i3status/
+!/.config/i3blocks/
 !/.config/swaync/
 !/.config/swaylock/
 !/.config/neru/

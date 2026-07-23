@@ -175,7 +175,8 @@ default_floating_border pixel 2
 
 bar {
     position top
-    status_command i3status
+    status_command i3blocks
+    font pango:Iosevka Nerd Font 10
 
     colors {
         statusline         $cute_text

@@ -9,5 +9,8 @@ import = [
 opacity = 0.96
 blur = true
 
+[font]
+normal = { family = "Iosevka Nerd Font", style = "Regular" }
+
 [terminal]
 shell = { program = "/bin/zsh" }

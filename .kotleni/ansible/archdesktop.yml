@@ -17,6 +17,7 @@
           - npm
           - go
           - jq
+          - sysstat
         state: present
 
     - name: Install nvim packages
@@ -36,7 +37,7 @@
           - swaylock
           - swayidle
           - swaync
-          - i3status
+          - i3blocks
           - wmenu
           - xdg-desktop-portal
           - xdg-desktop-portal-wlr
@@ -47,6 +48,7 @@
           - qt5ct
           - qt6ct
           - alacritty
+          - ttf-iosevka-nerd
 
     - name: Enable and start xdg-desktop-portal
       ansible.builtin.systemd:
