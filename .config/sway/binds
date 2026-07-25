@@ -3,6 +3,7 @@ floating_modifier $mod normal
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+p exec .kotleni/scripts/powermenu.sh
 
 # Move your focus around
 bindsym $mod+$left focus left
