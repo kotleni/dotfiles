@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_REPO="git@github.com:kotleni/.dotfiles.git"
+TARGET_DIR="$HOME/.kotleni"
+
+info()  { echo -e "\033[1;34m[INFO]\033[0m $*"; }
+ok()    { echo -e "\033[1;32m[ OK]\033[0m $*"; }
+warn()  { echo -e "\033[1;33m[WARN]\033[0m $*"; }
+die()   { echo -e "\033[1;31m[ERR ]\033[0m $*" >&2; exit 1; }
+
+confirm() {
+    local prompt="$1" default="${2:-Y}" yn
+    if [[ "$default" == "Y" ]]; then
+        read -rp "$prompt [Y/n]: " yn
+        yn="${yn:-Y}"
+    else
+        read -rp "$prompt [y/N]: " yn
+        yn="${yn:-N}"
+    fi
+    [[ "$yn" =~ ^[Yy]$ ]]
+}
+
+prompt_value() {
+    local prompt="$1" default="${2:-}" val
+    if [[ -n "$default" ]]; then
+        read -rp "$prompt [$default]: " val
+        echo "${val:-$default}"
+    else
+        while true; do
+            read -rp "$prompt: " val
+            [[ -n "$val" ]] && echo "$val" && break
+        done
+    fi
+}
+
+need_cmd() { command -v "$1" &>/dev/null || die "'$1' is required but not found."; }
+
+info "Bootstrapping kotleni's system..."
+echo
+
+read -rp "Full name: " FULL_NAME
+[[ -z "$FULL_NAME" ]] && die "Name cannot be empty."
+
+EMAIL=$(prompt_value "Email (git + SSH)")
+GITHUB_USER=$(prompt_value "GitHub username" "kotleni")
+
+echo
+info "Name:  $FULL_NAME"
+info "Email: $EMAIL"
+info "GitHub: $GITHUB_USER"
+echo
+
+info "Configuring git..."
+need_cmd git
+git config --global user.name "$FULL_NAME"
+git config --global user.email "$EMAIL"
+git config --global init.defaultBranch master
+git config --global pull.rebase true
+git config --global push.autoSetupRemote true
+ok "Git configured."
+
+info "Generating SSH keys..."
+need_cmd ssh-keygen
+
+SSH_GENERATED=false
+if [[ -d "$HOME/.ssh" ]] && ls "$HOME/.ssh"/id_ed25519_* &>/dev/null; then
+    warn "Existing SSH keys found:"
+    ls "$HOME/.ssh"/id_ed25519_* 2>/dev/null
+    confirm "Overwrite?" "N" && SSH_GENERATED=true
+fi
+
+if [[ "$SSH_GENERATED" == "false" ]]; then
+    eval "$(ssh-agent -s)" >/dev/null
+    SAFE_EMAIL="${EMAIL//[^a-zA-Z0-9]/_}"
+    KEY_PATH="$HOME/.ssh/id_ed25519_${SAFE_EMAIL}"
+
+    if [[ -f "$KEY_PATH" ]]; then
+        warn "Key already exists at $KEY_PATH, skipping."
+    else
+        ssh-keygen -t ed25519 -C "$EMAIL" -f "$KEY_PATH" -N ""
+        ssh-add "$KEY_PATH"
+        ok "Generated key for $EMAIL"
+    fi
+
+    echo
+    echo "────────────────────────────────────────"
+    echo "  Add this public key to GitHub:"
+    echo "────────────────────────────────────────"
+    cat "${KEY_PATH}.pub"
+    echo "────────────────────────────────────────"
+fi
+
+echo
+info "Setting up dotfiles..."
+if [[ -d "$TARGET_DIR/.dotfilesgit" ]]; then
+    warn "Dotfiles already initialized."
+    confirm "Re-initialize?" "N" || { ok "Skipped."; echo; exit 0; }
+fi
+
+mkdir -p "$TARGET_DIR"
+git init "$TARGET_DIR"
+git -C "$TARGET_DIR" remote add origin "$DOTFILES_REPO"
+git -C "$TARGET_DIR" fetch
+git -C "$TARGET_DIR" checkout -f master
+mv "$TARGET_DIR/.git" "$TARGET_DIR/.dotfilesgit"
+ok "Dotfiles initialized at $TARGET_DIR"
+
+echo
+echo -e "\033[1;32m══════════════════════════════════════\033[0m"
+echo -e "\033[1;32m  Bootstrap complete!\033[0m"
+echo -e "\033[1;32m══════════════════════════════════════\033[0m"
+echo
+echo "  Next: add the SSH key to GitHub, then:"
+echo "    cd ~/.kotleni && exec zsh"
+echo
