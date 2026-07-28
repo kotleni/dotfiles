@@ -1,7 +1,3 @@
-[PACMAN]
-command=pacman -Q | wc -l | awk '{ printf(" PKGS: %d \n ", $1) }'
-interval=30
-
 [DISK]
 command=df -h / | awk '/\//{ printf(" DISK:%4s/%s \n", $4, $2) }'
 interval=2
