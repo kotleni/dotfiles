@@ -20,6 +20,7 @@
 !/.config/qt5ct/
 !/.config/qt6ct/
 !/.config/fastfetch/
+!/.config/xkb/
 
 !/.config/nvim/
 !/.config/emacs/
