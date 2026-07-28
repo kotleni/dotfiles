@@ -20,11 +20,11 @@ then
     fi
 
     # Print full text. The charging data.
-    TIME_LEFT=$(echo $TIME_LEFT | awk '{ printf("%s\n", substr($1, 0, 5)) }')
-    echo "🔋$BAT_LEVEL ⏳$TIME_LEFT "
+    # TIME_LEFT=$(echo $TIME_LEFT | awk '{ printf("%s\n", substr($1, 0, 5)) }')
+    # echo "🔋$BAT_LEVEL "
 
     # Print the short text.
-    echo "BAT: $BAT_LEVEL"
+    echo " BAT: $BAT_LEVEL "
     
     # Change the font color, depending on the situation.
     if [ "$IS_CHARGING" = "Charging" ]
