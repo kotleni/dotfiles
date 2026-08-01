@@ -1,7 +1,9 @@
-exec swayidle -w \
-         timeout 400 'swaylock -f -c 000000' \
-         timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+exec idlerd \
+  --timeout 400 "swaylock" \
+  --timeout 900 "swaymsg 'output * power off'" \
+  --timeout 1400 "systemctl sleep" \
+  --resume "swaymsg 'output * power on'"
+
 exec swaync
 exec neru launch
 
