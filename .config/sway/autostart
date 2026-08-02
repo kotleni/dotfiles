@@ -1,10 +1,11 @@
-exec idlerd \
-  --timeout 400 "swaylock" \
-  --timeout 900 "swaymsg 'output * power off'" \
-  --timeout 1400 "systemctl sleep" \
-  --resume "swaymsg 'output * power on'"
+# exec idlerd \
+#  --timeout 400 "swaylock" \
+#  --timeout 900 "swaymsg 'output * power off'" \
+#  --timeout 1400 "systemctl sleep" \
+#  --resume "swaymsg 'output * power on'"
 
-exec swaync
+# exec swaync
+exec noctalia
 exec neru launch
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway

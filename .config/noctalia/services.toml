@@ -1,0 +1,20 @@
+[brightness]
+enable_ddcutil = true
+
+[idle.behavior.lock]
+timeout = 600
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 660
+action = "screen_off"
+enabled = true
+
+[idle.behavior.suspend]
+timeout = 900
+action = "lock_and_suspend"
+enabled = true
+
+[system.monitor]
+enabled = false

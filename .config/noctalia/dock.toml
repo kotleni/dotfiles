@@ -1,0 +1,5 @@
+[dock]
+enabled = false
+position = "left"
+active_monitor_only = true
+icon_size = 28

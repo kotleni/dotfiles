@@ -1,0 +1,25 @@
+[widget.workspaces]
+enabled = true
+style = "minimal"
+display = "id"
+
+[widget.control-center]
+enabled = true
+glyph = "cat"
+
+[widget.keyboard_layout]
+enabled = true
+display = "short"
+
+[widget.launcher]
+enabled = false
+
+[widget.wallpaper]
+enabled = false
+
+[widget.audio_visualizer]
+enabled = false
+
+[widget.network]
+show_label = false
+

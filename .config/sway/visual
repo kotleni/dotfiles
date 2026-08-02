@@ -13,18 +13,18 @@ default_border pixel 2
 default_floating_border pixel 2
 
 bar {
-    position bottom
-    status_command i3blocks
-    font pango:Jetbrains Mono 10
-
-    colors {
-        statusline         $cute_text
-        background         $cute_base
-        separator          $cute_mute
-        focused_workspace  $cute_red   $cute_red   $cute_base
-        active_workspace   $cute_blush $cute_blush $cute_base
-        inactive_workspace $cute_surf  $cute_surf  $cute_text
-        urgent_workspace   $cute_red   $cute_red   $cute_base
-    }
+#     position bottom
+#     status_command i3blocks
+#     font pango:Jetbrains Mono 10
+# 
+#     colors {
+#         statusline         $cute_text
+#         background         $cute_base
+#         separator          $cute_mute
+#         focused_workspace  $cute_red   $cute_red   $cute_base
+#         active_workspace   $cute_blush $cute_blush $cute_base
+#         inactive_workspace $cute_surf  $cute_surf  $cute_text
+#         urgent_workspace   $cute_red   $cute_red   $cute_base
+#     }
 }
 

@@ -1,0 +1,11 @@
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+fill_color = "#212121"
+directory = "~/.kotleni/wallpapers/"
+
+[wallpaper.automation]
+enabled = true
+interval_seconds = 1800
+order = "alphabetical"
+recursive = true

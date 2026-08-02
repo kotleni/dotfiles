@@ -12,6 +12,7 @@
 
 !/.config/alacritty/
 !/.config/sway/
+!/.config/noctalia/
 !/.config/i3status/
 !/.config/i3blocks/
 !/.config/swaync/

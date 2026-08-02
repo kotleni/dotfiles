@@ -1,0 +1,28 @@
+[bar.default]
+enabled = true
+position = "top"
+layer = "top"
+scale = 1.0
+thickness = 32
+background_opacity = 1.0
+border_width = 0.0
+shadow = false
+contact_shadow = false
+radius = 0
+concave_edge_corners = false
+margin_ends = 0
+margin_edge = 0
+padding = 8
+widget_spacing = 6
+hover_highlight = true
+
+capsule = true
+capsule_fill = "surface_variant"
+capsule_thickness = 0.7
+capsule_radius = 8.0
+capsule_opacity = 0.5
+
+[bar.default.monitor.edp2]
+enabled = false
+match = "eDP-1"
+position = "top"

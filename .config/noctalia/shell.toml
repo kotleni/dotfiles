@@ -1,0 +1,39 @@
+[shell]
+lang = "en"
+corner_radius_scale = 0.6
+setup_wizard_enabled = false
+telemetry_enabled = true
+polkit_agent = true
+clipboard_enabled = true
+clipboard_history_max_entries = 32
+
+[shell.animation]
+enabled = true
+speed = 2.8
+
+[shell.shadow]
+direction = "down"
+alpha = 0.0
+
+[shell.panel]
+transparency_mode = "solid"
+borders = false
+shadow = false
+
+[shell.launcher]
+categories = false
+show_icons = true
+compact = true
+app_grid = false
+sort_by_usage = true
+
+[hot_corners]
+enabled = false
+
+[shell.screenshot]
+save_to_file = true
+copy_to_clipboard = true
+freeze_screen = true
+show_cursor = false
+directory = "~/Pictures/"
+
