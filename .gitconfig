@@ -3,3 +3,5 @@
 	email = yavarenikya@gmail.com
 [core]
 	autocrlf = false
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

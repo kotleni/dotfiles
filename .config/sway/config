@@ -13,4 +13,4 @@ include output
 include visual
 include binds  # tier 0 - defaults, windows and workspaces control
 include binds2 # tier 1 - tools, quick launch and custom binds
-
+include rules

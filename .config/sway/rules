@@ -1,0 +1,5 @@
+for_window [class="Unity" title="^$"] floating enable
+for_window [class="Unity" window_role="Utility"] floating enable
+for_window [class="Unity" window_role="Dialog"] floating enable
+for_window [class="Unity" window_type="dialog"] floating enable
+for_window [class="Unity" title="^(?!Unity).*$"] floating enable
