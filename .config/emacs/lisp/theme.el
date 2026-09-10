@@ -1,3 +1,5 @@
+;; -*- lexical-binding: nil -*- 
+
 (defvar theme-light 'modus-operandi)
 (defvar theme-dark 'modus-vivendi)
 

@@ -1,4 +1,4 @@
-;; https://github.com/emacs-dashboard/dashboard
+;; -*- lexical-binding: nil -*- 
 
 (setq dashboard-banner-logo-title "Welcome to Emacs")
 (setq dashboard-startup-banner 'logo-braille)

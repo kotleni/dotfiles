@@ -1,3 +1,5 @@
+;; -*- lexical-binding: nil -*- 
+
 ;;; elcord.el --- Allows you to integrate Rich Presence from Discord
 
 ;; Copyright (C) 2017 heatingdevice

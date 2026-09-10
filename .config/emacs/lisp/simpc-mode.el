@@ -1,3 +1,5 @@
+;; -*- lexical-binding: nil -*- 
+
 (require 'subr-x)
 
 (defvar simpc-mode-syntax-table
