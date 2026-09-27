@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Requesting Steam to shut down cleanly..."
+steam -shutdown 2>/dev/null || true
+
+timeout 5 bash -c 'while pgrep -x steam >/dev/null; do sleep 0.5; done' 2>/dev/null || true
+
+PROCESSES=(
+  "steam"
+  "steamwebhelper"
+  "steamservice"
+  "reaper"
+  "pressure-vessel"
+  "pv-bwrap"
+  "wineserver"
+)
+
+PATTERNS=(
+  "wine"
+  "proton"
+)
+
+echo "Sending SIGTERM..."
+for proc in "${PROCESSES[@]}"; do
+  pkill -15 -x "$proc" 2>/dev/null || true
+done
+
+for pat in "${PATTERNS[@]}"; do
+  pkill -15 -f "$pat" --o-match "$pat" 2>/dev/null || true
+done
+
+sleep 1
+
+echo "Enforcing SIGKILL..."
+for proc in "${PROCESSES[@]}"; do
+  pkill -9 -x "$proc" 2>/dev/null || true
+done
+
+for pat in "${PATTERNS[@]}"; do
+  pkill -9 -f "$pat" 2>/dev/null || true
+done
+
+echo "Steam and process tree terminated."!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Requesting Steam to shut down cleanly..."
+steam -shutdown 2>/dev/null || true
+
+timeout 5 bash -c 'while pgrep -x steam >/dev/null; do sleep 0.5; done' 2>/dev/null || true
+
+# Exact process names (no -f flag) to prevent matching full CLI strings like script name
+PROCESSES=(
+  "steam"
+  "steamwebhelper"
+  "steamservice"
+  "reaper"
+  "pressure-vessel"
+  "pv-bwrap"
+  "wineserver"
+)
+
+# Substrings for game executables/wine/proton helpers (filtering out self PID)
+PATTERNS=(
+  "wine"
+  "proton"
+)
+
+echo "Sending SIGTERM..."
+for proc in "${PROCESSES[@]}"; do
+  pkill -15 -x "$proc" 2>/dev/null || true
+done
+
+for pat in "${PATTERNS[@]}"; do
+  pkill -15 -f "$pat" --o-match "$pat" 2>/dev/null || true
+done
+
+sleep 1
+
+echo "Enforcing SIGKILL..."
+for proc in "${PROCESSES[@]}"; do
+  pkill -9 -x "$proc" 2>/dev/null || true
+done
+
+for pat in "${PATTERNS[@]}"; do
+  pkill -9 -f "$pat" 2>/dev/null || true
+done
+
+echo "Steam and process tree terminated."
