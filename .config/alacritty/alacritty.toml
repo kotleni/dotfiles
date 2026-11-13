@@ -14,4 +14,4 @@ size = 9
 normal = { family = "Jetbrains Mono", style = "Regular" }
 
 [terminal]
-shell = { program = "/usr/bin/fish" }
+shell = { program = "/usr/bin/zsh" }
