@@ -37,8 +37,23 @@
 (setq inhibit-startup-screen t)
 
 ;; font
-(add-to-list 'default-frame-alist
-             '(font . "CaskaydiaCove Nerd Font"))
+(defun kotleni/font-by-resolution ()
+  (let ((w (ignore-errors (display-pixel-width)))
+        (h (ignore-errors (display-pixel-height))))
+    (if (and (numberp w) (numberp h) (= w 1920) (= h 1080))
+        "CaskaydiaCove Nerd Font-10"
+      "CaskaydiaCove Nerd Font-12")))
+
+(let ((f (kotleni/font-by-resolution)))
+  (add-to-list 'default-frame-alist `(font . ,f))
+  (when (display-graphic-p)
+    (set-face-attribute 'default nil :font f)))
+
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (with-selected-frame frame
+              (when (display-graphic-p frame)
+                (set-face-attribute 'default nil :font (kotleni/font-by-resolution))))))
 
 ;; visual
 (setopt
