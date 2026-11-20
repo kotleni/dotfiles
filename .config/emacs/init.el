@@ -35,7 +35,7 @@
 
 ;; font
 (add-to-list 'default-frame-alist
-             '(font . "Iosevka Nerd Font Mono"))
+             '(font . "CaskaydiaCove Nerd Font"))
 
 ;; visual
 (setopt
