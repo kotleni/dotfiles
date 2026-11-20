@@ -19,8 +19,11 @@
 
 ;; TODO: Use expand-file-name for path's
 ;; set backups and autosave folders
-(setq backup-directory-alist `(("." . "~/.confing/emacs/backups/")))
-(setq auto-save-file-name-transforms `((".*" "~/.config/emacs/auto-save/" t)))
+(setq backup-directory-alist `(("." . ,(expand-file-name "backups/" user-emacs-directory))))
+(setq auto-save-file-name-transforms `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
+(dolist (dir (list (expand-file-name "backups/" user-emacs-directory) (expand-file-name "auto-save/" user-emacs-directory)))
+  (unless (file-directory-p dir)
+    (make-directory dir t)))
 
 ;; enable & configure elcord
 (elcord-mode)
