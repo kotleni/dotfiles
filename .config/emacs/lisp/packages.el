@@ -73,10 +73,11 @@
   :init
   (setq treesit-language-source-alist
         '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-          (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+          (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+          (rust "https://github.com/tree-sitter/tree-sitter-rust")))
   :config
   ;; Automatically install missing grammars defined in treesit-language-source-alist
-  (dolist (lang '(typescript tsx))
+  (dolist (lang '(typescript tsx rust))
     (unless (treesit-ready-p lang t)
       (treesit-install-language-grammar lang))))
 
@@ -98,6 +99,13 @@
   :hook (tsx-ts-mode . eglot-ensure)
   :config
   (setq typescript-ts-mode-indent-offset 4))
+
+(use-package rust-ts-mode
+  :ensure nil
+  :mode ("\\.rs\\'" . rust-ts-mode)
+  :hook (rust-ts-mode . eglot-ensure)
+  :config
+  (setq rust-ts-mode-indent-offset 4))
 
 (use-package zig-mode)
 
