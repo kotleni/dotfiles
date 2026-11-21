@@ -25,7 +25,29 @@
   :hook (compilation-filter . ansi-color-compilation-filter)
   :custom
   (compilation-scroll-output 'first-error)
-  (compilation-always-kill t))
+  (compilation-always-kill t)
+  :config
+  (define-advice compile (:around (orig &rest args) use-project-root)
+    (let* ((root (or (and (project-current)
+                          (project-root (project-current)))
+                     default-directory))
+           (fix (lambda (s)
+                  (if (and (stringp s)
+                           (string-prefix-p "../" s)
+                           (file-exists-p (expand-file-name (substring s 3) root))
+                           (not (file-exists-p (expand-file-name s root))))
+                      (concat "./" (substring s 3))
+                    s)))
+           (default-directory root)
+           (compile-command (if (stringp compile-command)
+                                (funcall fix compile-command)
+                              compile-command)))
+      (apply orig (mapcar fix args))))
+  (define-advice compilation-read-command (:around (orig &rest args) use-project-root)
+    (let ((default-directory (or (and (project-current)
+                                      (project-root (project-current)))
+                                 default-directory)))
+      (apply orig args))))
 
 (use-package magit
   :custom
@@ -115,6 +137,10 @@
          ("\\.cmake\\'" . cmake-mode))
   :custom
   (cmake-tab-width 4))
+
+(use-package dts-mode
+  :ensure t
+  :mode ("\\.dtsi?\\'" . dts-mode))
 
 (use-package dashboard
   :config
