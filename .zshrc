@@ -14,6 +14,8 @@ alias e="$EDITOR $@"
 alias open="xdg-open $@"
 alias dfgit='/usr/bin/git --git-dir=$HOME/.dotfilesgit/ --work-tree=$HOME'
 
+export PATH="$PATH:~/.cargo/bin/"
+
 # Colorize man & less pages
 export LESS_TERMCAP_mb=$'\e[1;34m'     # begin bold
 export LESS_TERMCAP_md=$'\e[1;32m'     # begin blink
@@ -25,4 +27,4 @@ export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export MANPAGER='less -s -M +Gg'
 
-~/.kotleni/scripts/motd
+
