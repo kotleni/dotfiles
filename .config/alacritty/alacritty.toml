@@ -6,12 +6,15 @@ import = [
 ]
 
 [window]
-opacity = 1.0
+opacity = 0.8
 blur = true
 
 [font]
-size = 9
-normal = { family = "Jetbrains Mono", style = "Regular" }
+size = 8
+normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
 
 [terminal]
 shell = { program = "/usr/bin/zsh" }
+
+[mouse]
+hide_when_typing = true
