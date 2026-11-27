@@ -17,6 +17,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+;; trusted folders
+(setq trusted-content '("~/Projects/"))
+
 ;; TODO: Use expand-file-name for path's
 ;; set backups and autosave folders
 (setq backup-directory-alist `(("." . ,(expand-file-name "backups/" user-emacs-directory))))

@@ -155,4 +155,7 @@
   :ensure t
   :commands (dired-sidebar-toggle-sidebar))
 
+(use-package vterm
+  :ensure t)
+
 (provide 'packages)
