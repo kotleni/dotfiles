@@ -39,7 +39,7 @@ setup_prompt() {
     zstyle ':vcs_info:git:*' actionformats ' %F{blue}(%F{red}%b|%a%F{blue})%f'
 
     setopt PROMPT_SUBST
-    PROMPT='%B%F{green}%n@%m%f %F{blue}%1~${vcs_info_msg_0_} %#%f%b '
+    PROMPT='%B%F{red}%n@%m%f %F{white}%1~${vcs_info_msg_0_} %F{red}›%f%b '
 }
 
 setup_env() {
