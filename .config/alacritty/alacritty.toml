@@ -6,11 +6,11 @@ import = [
 ]
 
 [window]
-opacity = 0.8
+opacity = 1.0
 blur = true
 
 [font]
-size = 8
+size = 9
 normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
 
 [terminal]
