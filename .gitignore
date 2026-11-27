@@ -10,6 +10,7 @@
 !/.config/
 /.config/*
 
+!/.config/environment.d/
 !/.config/alacritty/
 !/.config/sway/
 !/.config/noctalia/
@@ -27,3 +28,5 @@
 !/.config/emacs/
 !/.config/tmux/
 
+.config/emacs/projects.eld
+.config/emacs/recentf.eld
