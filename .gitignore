@@ -22,6 +22,7 @@
 !/.config/qt6ct/
 !/.config/fastfetch/
 !/.config/xkb/
+!/.config/fish/
 
 !/.config/nvim/
 !/.config/emacs/
