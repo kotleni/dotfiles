@@ -5,6 +5,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+unset -f command_not_found_handler
+
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export ARCHFLAGS="-arch $(uname -m)"
