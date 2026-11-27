@@ -14,7 +14,7 @@ size = 9
 normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
 
 [terminal]
-shell = { program = "/usr/bin/zsh" }
+shell = { program = "/usr/bin/fish" }
 
 [mouse]
 hide_when_typing = true
