@@ -11,6 +11,22 @@ setup_completion() {
     zstyle ':completion:*' menu select
 }
 
+setup_keybindings() {
+    bindkey -e
+
+    # Ctrl+Left / Ctrl+Right
+    bindkey '^[[1;5D' backward-word
+    bindkey '^[[1;5C' forward-word
+    bindkey '^[OD' backward-word
+    bindkey '^[OC' forward-word
+
+    # Alt+Left / Alt+Right
+    bindkey '^[[1;3D' backward-word
+    bindkey '^[[1;3C' forward-word
+    bindkey '^[^[[D' backward-word
+    bindkey '^[^[[C' forward-word
+}
+
 setup_prompt() {
     autoload -Uz vcs_info
     precmd() { vcs_info }
@@ -54,10 +70,11 @@ setup_dfgit() {
 
 setup_history
 setup_completion
+setup_keybindings
 setup_prompt
 setup_env
 setup_pager
 setup_dfgit
 
-unfunction setup_history setup_completion setup_prompt
+unfunction setup_history setup_completion setup_prompt setup_keybindings
 unfunction setup_env setup_pager setup_dfgit
